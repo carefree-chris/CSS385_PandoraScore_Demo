@@ -27,7 +27,7 @@ public class SearchObject : MonoBehaviour
     private void Update()
     {
         updateSprite();
-        Debug.Log(contents);
+        //Debug.Log(contents);
     }
 
     private void updateSprite()
