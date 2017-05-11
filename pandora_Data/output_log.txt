@@ -1,0 +1,95 @@
+Initialize engine version: 5.5.2f1 (3829d7f588f3)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 560 Ti (ID=0x1200)
+    Vendor:   NVIDIA
+    VRAM:     979 MB
+    Driver:   21.21.13.7892
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.035 seconds
+Platform assembly: C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Crthas\Desktop\CSS385_P1\CSS385_PandoraScore_Prototypes-master\pandora_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.423684 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.433566 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 537.
+Total: 0.181376 ms (FindLiveObjects: 0.019819 ms CreateObjectMapping: 0.021020 ms MarkObjects: 0.133629 ms  DeleteObjects: 0.006606 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.784335 ms
+
+Unloading 291 unused Assets to reduce memory usage. Loaded Objects now: 344.
+Total: 0.522808 ms (FindLiveObjects: 0.053752 ms CreateObjectMapping: 0.040839 ms MarkObjects: 0.318910 ms  DeleteObjects: 0.108705 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.430919 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 321.
+Total: 0.159154 ms (FindLiveObjects: 0.012011 ms CreateObjectMapping: 0.012311 ms MarkObjects: 0.131527 ms  DeleteObjects: 0.003002 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.361851 ms
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 260.
+Total: 0.301192 ms (FindLiveObjects: 0.030329 ms CreateObjectMapping: 0.028527 ms MarkObjects: 0.170565 ms  DeleteObjects: 0.071169 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.299391 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 344.
+Total: 0.329420 ms (FindLiveObjects: 0.034533 ms CreateObjectMapping: 0.029728 ms MarkObjects: 0.257049 ms  DeleteObjects: 0.007207 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.371160 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 321.
+Total: 0.178673 ms (FindLiveObjects: 0.013212 ms CreateObjectMapping: 0.012311 ms MarkObjects: 0.149845 ms  DeleteObjects: 0.002702 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.355245 ms
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 260.
+Total: 0.307799 ms (FindLiveObjects: 0.029728 ms CreateObjectMapping: 0.027326 ms MarkObjects: 0.176871 ms  DeleteObjects: 0.073271 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.297589 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 344.
+Total: 0.319810 ms (FindLiveObjects: 0.032731 ms CreateObjectMapping: 0.038137 ms MarkObjects: 0.241134 ms  DeleteObjects: 0.007207 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.369659 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 321.
+Total: 0.157653 ms (FindLiveObjects: 0.013513 ms CreateObjectMapping: 0.012011 ms MarkObjects: 0.129125 ms  DeleteObjects: 0.002702 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.377767 ms
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 260.
+Total: 0.298189 ms (FindLiveObjects: 0.027326 ms CreateObjectMapping: 0.026425 ms MarkObjects: 0.175070 ms  DeleteObjects: 0.068466 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.337528 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 344.
+Total: 0.340831 ms (FindLiveObjects: 0.035134 ms CreateObjectMapping: 0.027927 ms MarkObjects: 0.269061 ms  DeleteObjects: 0.007807 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 4230 -> priority: 1 
