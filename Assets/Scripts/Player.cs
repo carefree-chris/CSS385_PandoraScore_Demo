@@ -26,6 +26,8 @@ public class Player : MonoBehaviour {
     }
     private moveState motion;
 
+    private GameObject mainCamera;
+
     //Collision with Object Interaction
     private enum nextTo
     {
@@ -36,10 +38,13 @@ public class Player : MonoBehaviour {
     private nextTo proximity;
 
 
+
+
     // Use this for initialization
     void Start () {
         animator = GetComponentInChildren<Animator>();
         coll = GetComponent<BoxCollider2D>();
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         proximity = nextTo.open;
         motion = moveState.idle;
@@ -130,18 +135,23 @@ public class Player : MonoBehaviour {
     {
         proximity = nextTo.open;
     }
-
+    
+    
+    
+    
     //Changes State Based on if touching Special Objects
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log(collision);
+        //Debug.Log(collision);
         if (collision.gameObject.tag == "HideObject")
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButton("Jump"))
             {
                 motion = moveState.hiding;
+               
                 collision.gameObject.GetComponent<HideHero>().Hero = this.gameObject;
-            }
+               gameObject.SetActive(false);
+         }
             proximity = nextTo.hide;
         }
         if (collision.gameObject.tag == "SearchObject")
@@ -152,14 +162,16 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.tag == "KeyObject")
         {
             bool hasKeyInside = collision.gameObject.GetComponent<KeyObject>().containsKey;
-            if (hasKeyInside && Input.GetButtonDown("Jump"))
+            if (hasKeyInside && Input.GetButton("Jump"))
             {
                 collision.gameObject.GetComponent<KeyObject>().containsKey = false;
                 keysHeld++;
+                mainCamera.GetComponent<UI>().keyNum.text = "" + keysHeld;
                 Debug.Log("Amount of Keys" + keysHeld);
             }
         }
     }
+    
 
     private void goInvisible()
     {

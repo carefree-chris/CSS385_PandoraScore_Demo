@@ -10,8 +10,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI.unity
   - enabled: 1
-    path: Assets/Scenes/Prototype_Level.unity
-  - enabled: 1
     path: Assets/Scenes/Main.unity
   - enabled: 1
     path: Assets/Scenes/Over.unity

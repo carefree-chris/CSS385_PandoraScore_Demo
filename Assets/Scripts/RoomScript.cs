@@ -321,5 +321,6 @@ public class RoomScript : MonoBehaviour
     {
         int num = Random.Range(0, Interactables.Count - 1);
         Interactables[num].tag = "HasKey";
+      Interactables[num].GetComponentInChildren<SpriteRenderer>().color = Color.cyan;
     }
 }
