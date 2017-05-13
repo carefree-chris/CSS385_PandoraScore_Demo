@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4647003557534346}
   - component: {fileID: 61746886488033402}
   - component: {fileID: 114653019065122052}
+  - component: {fileID: 114726465032762940}
   m_Layer: 0
   m_Name: Interactable 1x2
   m_TagString: SearchObject
@@ -100,6 +101,19 @@ MonoBehaviour:
   contents: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   original: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114726465032762940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1646728536655058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9be77897966324a8d8107b1a122336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleRepObj: {fileID: 1839937615009684, guid: a99319ddb3aa5324a99f2114c89f1a08,
+    type: 2}
 --- !u!212 &212418881944915698
 SpriteRenderer:
   m_ObjectHideFlags: 1
