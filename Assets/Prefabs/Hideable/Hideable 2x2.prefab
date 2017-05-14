@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 4162497882155600}
   - component: {fileID: 61428990298005744}
   - component: {fileID: 114451027751348294}
-  - component: {fileID: 114798450396137484}
   m_Layer: 0
   m_Name: Hideable 2x2
   m_TagString: HideObject
@@ -126,19 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleRepObj: {fileID: 0}
---- !u!114 &114798450396137484
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1986445758031082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e9be77897966324a8d8107b1a122336, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacleRepObj: {fileID: 1839937615009684, guid: a99319ddb3aa5324a99f2114c89f1a08,
-    type: 2}
 --- !u!212 &212001604217037584
 SpriteRenderer:
   m_ObjectHideFlags: 1

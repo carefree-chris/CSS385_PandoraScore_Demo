@@ -122,7 +122,7 @@ public class MonsterAI : MonoBehaviour {
     public bool AddPatrolPoint(Vector3 point)
     {
 
-        if (patrolNodes.Contains(point))
+        if (point == null || patrolNodes.Contains(point))
         {
             return false;
         }

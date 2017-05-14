@@ -45,6 +45,7 @@ public class MonsterSearchState : IMonsterState {
     void Awake()
     {
         currentSubState = SearchingSubState.CheckingLastPosition;
+        realFurniture = new List<Collider2D>();
     }
 
     private void CheckingLastPosition()
@@ -65,8 +66,8 @@ public class MonsterSearchState : IMonsterState {
             Collider2D hidingSpot = Physics2D.OverlapCircle(monster.transform.position, 1.5f);
             if (hidingSpot != null && (hidingSpot.transform.tag == "Furniture" || hidingSpot.transform.tag == "HideObject"))
             {
-                //if (!hidingSpot.gameObject.GetComponent<Furniture_Controller>().GetIsEmpty())
-                    //Debug.Log("Player Found!"); // TODO change this to fit with Andrue's interactive furniture, and reset level
+                if (!hidingSpot.gameObject.GetComponent<Furniture_Controller>().GetIsEmpty())
+                    Debug.Log("Player Found!"); // TODO change this to fit with Andrue's interactive furniture, and reset level
             }
             
 
@@ -80,7 +81,7 @@ public class MonsterSearchState : IMonsterState {
 
     private void CheckingFurniture()
     {
-        //TODO - Potential Bug: Monster stops at furniture, and never moves?
+        
         if (monster.TargetIsVisible())
         {
             ToMonsterChaseState();
@@ -91,11 +92,11 @@ public class MonsterSearchState : IMonsterState {
         if (potentialFurniture == null)
         {
             potentialFurniture = Physics2D.OverlapCircleAll(monster.transform.position, monster.furnitureSearchRadius);
-            realFurniture = new List<Collider2D>();
+
             for (int i = 0; i < potentialFurniture.Length; i++)
             {
                 //TODO raycast to make sure all furniture is within line of sight
-                if (potentialFurniture[i].transform.tag == "HideObject" && (Physics2D.Raycast(monster.transform.position, potentialFurniture[i].transform.position - monster.transform.position).transform.tag == "HideObject"))
+                if (potentialFurniture[i].transform.tag == "Furniture" && (Physics2D.Raycast(monster.transform.position, potentialFurniture[i].transform.position - monster.transform.position).transform.tag == "Furniture"))
                 {
                     //Debug.Log("FOUND FURNITURE");
                     realFurniture.Add(potentialFurniture[i]);
@@ -103,15 +104,8 @@ public class MonsterSearchState : IMonsterState {
             }
 
 
-            
             if (realFurniture.Count <= 0)
-            {
-                //Debug.Log("No furniture in room.");
-            }
-                
-            
-
-            
+                Debug.Log("No furniture in room.");
 
             finalFurniture = realFurniture.ToArray();
 
@@ -162,8 +156,8 @@ public class MonsterSearchState : IMonsterState {
         {
 
             //TODO check for player
-            //if (!furniture.gameObject.GetComponent<Furniture_Controller>().GetIsEmpty())
-                //Debug.Log("Player found!");
+            if (!furniture.gameObject.GetComponent<Furniture_Controller>().GetIsEmpty())
+                Debug.Log("Player found!");
 
 
             monster.furnitureSearchTime += Time.smoothDeltaTime;
