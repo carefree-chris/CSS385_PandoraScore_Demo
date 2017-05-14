@@ -17,6 +17,7 @@ public class UI : MonoBehaviour {
     public Text potionNum;
     public Text cookieNum;
     public Text noti;
+    public GameObject Hero;
 
     // Use this for initialization
     void Start () {
@@ -32,9 +33,12 @@ public class UI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        keyNum.text = "x" + key;
-        potionNum.text = "x" + potion;
-        cookieNum.text = "x" + cookie;
+        cookie = Hero.gameObject.GetComponent<Player>().cookiesHeld;
+        key = Hero.gameObject.GetComponent<Player>().keysHeld;
+        potion = Hero.gameObject.GetComponent<Player>().potionsHeld;
+        keyNum.text = "x " + key;
+        potionNum.text = "x " + potion;
+        cookieNum.text = "x " + cookie;
     }
 
     public void addKey() {

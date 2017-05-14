@@ -52,7 +52,7 @@ public class Player : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
 
@@ -80,6 +80,7 @@ public class Player : MonoBehaviour {
         }
         else if (motion == moveState.hiding)
         {
+            
             if (Input.GetButtonDown("Jump"))
             {
                 motion = moveState.idle;
@@ -131,6 +132,8 @@ public class Player : MonoBehaviour {
             animator.SetBool("IsMoving", false);
         }
     }
+
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         proximity = nextTo.open;
@@ -145,13 +148,14 @@ public class Player : MonoBehaviour {
         //Debug.Log(collision);
         if (collision.gameObject.tag == "HideObject")
         {
-            if (Input.GetButton("Jump"))
+            if (Input.GetButtonDown("Jump"))
             {
                 motion = moveState.hiding;
-               
+
+                collision.gameObject.GetComponent<HideHero>().hiding_hero = true;
                 collision.gameObject.GetComponent<HideHero>().Hero = this.gameObject;
-               gameObject.SetActive(false);
-         }
+                this.gameObject.SetActive(false);
+            }
             proximity = nextTo.hide;
         }
         if (collision.gameObject.tag == "SearchObject")
@@ -162,7 +166,7 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.tag == "KeyObject")
         {
             bool hasKeyInside = collision.gameObject.GetComponent<KeyObject>().containsKey;
-            if (hasKeyInside && Input.GetButton("Jump"))
+            if (hasKeyInside && Input.GetButtonDown("Jump"))
             {
                 collision.gameObject.GetComponent<KeyObject>().containsKey = false;
                 keysHeld++;
