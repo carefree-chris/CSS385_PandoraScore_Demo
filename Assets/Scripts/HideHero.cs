@@ -5,18 +5,13 @@ using UnityEngine;
 public class HideHero : MonoBehaviour
 {
     public GameObject Hero;
-    public bool hiding_hero = false;
     
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (hiding_hero == true)
-        {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonUp("Jump"))
             {
                 Hero.SetActive(true);
-                hiding_hero = false;
             }
-        }
     }
 }

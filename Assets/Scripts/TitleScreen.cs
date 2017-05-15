@@ -15,10 +15,19 @@ public class TitleScreen : MonoBehaviour {
 		
 	}
 
+    IEnumerator PalyGame()
+    {
+        float fadetime = GameObject.Find("TitleScream").GetComponent<Fading>().BeginFade(1);
+        yield return new WaitForSeconds(fadetime);
+        SceneManager.LoadScene("Main");
+    }
+
     public void startGame()
     {
-        SceneManager.LoadSceneAsync("Main");
+        StartCoroutine(routine:PalyGame());
     }
+
+    
 
     public void QuitGame()
     {

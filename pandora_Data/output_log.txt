@@ -7,23 +7,1044 @@ Direct3D:
     VRAM:     979 MB
     Driver:   21.21.13.7892
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
-Loading C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.034 seconds
-Platform assembly: C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Crthas\Desktop\CSS385_PandoraScore_Demo-master\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.033 seconds
+Platform assembly: C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Crthas\Downloads\CSS385_PandoraScore_Demo-master (1)\CSS385_PandoraScore_Demo-master\pandora_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on Fading
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 382)
+
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.075920 ms
+UnloadTime: 1.357020 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.949417 ms
+
+Unloading 98 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 1.559417 ms (FindLiveObjects: 0.048347 ms CreateObjectMapping: 0.027626 ms MarkObjects: 0.322814 ms  DeleteObjects: 1.159728 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.307939 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.760640 ms (FindLiveObjects: 0.232125 ms CreateObjectMapping: 0.041440 ms MarkObjects: 0.255248 ms  DeleteObjects: 0.230924 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.994568 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 2.961482 ms (FindLiveObjects: 0.069367 ms CreateObjectMapping: 0.154350 ms MarkObjects: 0.603587 ms  DeleteObjects: 2.132675 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.364995 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.713194 ms (FindLiveObjects: 0.189784 ms CreateObjectMapping: 0.027626 ms MarkObjects: 0.248642 ms  DeleteObjects: 0.246539 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.549534 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 1.685840 ms (FindLiveObjects: 0.056755 ms CreateObjectMapping: 0.065463 ms MarkObjects: 0.330021 ms  DeleteObjects: 1.232399 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.280312 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.700581 ms (FindLiveObjects: 0.178974 ms CreateObjectMapping: 0.034833 ms MarkObjects: 0.245338 ms  DeleteObjects: 0.240834 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.524610 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 1.782534 ms (FindLiveObjects: 0.060058 ms CreateObjectMapping: 0.067265 ms MarkObjects: 0.319510 ms  DeleteObjects: 1.335099 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.562560 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.779859 ms (FindLiveObjects: 0.205399 ms CreateObjectMapping: 0.045644 ms MarkObjects: 0.270563 ms  DeleteObjects: 0.257350 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.593978 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 1.887036 ms (FindLiveObjects: 0.057055 ms CreateObjectMapping: 0.053452 ms MarkObjects: 0.354945 ms  DeleteObjects: 1.420082 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.774566 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.724004 ms (FindLiveObjects: 0.192187 ms CreateObjectMapping: 0.038437 ms MarkObjects: 0.247440 ms  DeleteObjects: 0.245338 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.547733 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 1.739893 ms (FindLiveObjects: 0.059758 ms CreateObjectMapping: 0.083481 ms MarkObjects: 0.344134 ms  DeleteObjects: 1.251918 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.656251 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.663645 ms (FindLiveObjects: 0.115011 ms CreateObjectMapping: 0.046545 ms MarkObjects: 0.250443 ms  DeleteObjects: 0.251044 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.649532 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 2.226667 ms (FindLiveObjects: 0.057355 ms CreateObjectMapping: 0.045644 ms MarkObjects: 0.446834 ms  DeleteObjects: 1.676231 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.644266 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.753733 ms (FindLiveObjects: 0.213808 ms CreateObjectMapping: 0.033332 ms MarkObjects: 0.257350 ms  DeleteObjects: 0.248642 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.569053 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 1.677732 ms (FindLiveObjects: 0.045043 ms CreateObjectMapping: 0.039037 ms MarkObjects: 0.380770 ms  DeleteObjects: 1.212279 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.920809 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.729409 ms (FindLiveObjects: 0.123720 ms CreateObjectMapping: 0.044443 ms MarkObjects: 0.293986 ms  DeleteObjects: 0.266659 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.576561 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 1.687041 ms (FindLiveObjects: 0.043242 ms CreateObjectMapping: 0.042040 ms MarkObjects: 0.391581 ms  DeleteObjects: 1.209577 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.879068 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.743823 ms (FindLiveObjects: 0.186781 ms CreateObjectMapping: 0.042641 ms MarkObjects: 0.259152 ms  DeleteObjects: 0.254347 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.581966 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 2.927549 ms (FindLiveObjects: 0.057355 ms CreateObjectMapping: 0.067866 ms MarkObjects: 0.635718 ms  DeleteObjects: 2.166008 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.890179 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.863940 ms (FindLiveObjects: 0.238732 ms CreateObjectMapping: 0.050148 ms MarkObjects: 0.303895 ms  DeleteObjects: 0.270563 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.585569 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 1.653409 ms (FindLiveObjects: 0.057355 ms CreateObjectMapping: 0.068466 ms MarkObjects: 0.336327 ms  DeleteObjects: 1.190959 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.970384 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.709590 ms (FindLiveObjects: 0.182877 ms CreateObjectMapping: 0.034233 ms MarkObjects: 0.253746 ms  DeleteObjects: 0.237831 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.584068 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 1.882532 ms (FindLiveObjects: 0.073871 ms CreateObjectMapping: 0.043842 ms MarkObjects: 0.473260 ms  DeleteObjects: 1.290656 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player caught
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MonsterSearchState.CheckingFurniture () [0x00000] in <filename unknown>:0 
+  at MonsterSearchState.UpdateState () [0x00000] in <filename unknown>:0 
+  at MonsterAI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+No furniture found.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MonsterSearchState.CheckingFurniture () [0x00000] in <filename unknown>:0 
+  at MonsterSearchState.UpdateState () [0x00000] in <filename unknown>:0 
+  at MonsterAI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+No furniture found.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MonsterSearchState.CheckingFurniture () [0x00000] in <filename unknown>:0 
+  at MonsterSearchState.UpdateState () [0x00000] in <filename unknown>:0 
+  at MonsterAI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+No furniture found.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MonsterSearchState.CheckingFurniture () [0x00000] in <filename unknown>:0 
+  at MonsterSearchState.UpdateState () [0x00000] in <filename unknown>:0 
+  at MonsterAI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+No furniture found.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MonsterSearchState.CheckingFurniture () [0x00000] in <filename unknown>:0 
+  at MonsterSearchState.UpdateState () [0x00000] in <filename unknown>:0 
+  at MonsterAI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+No furniture found.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 10.213240 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.689471 ms (FindLiveObjects: 0.086784 ms CreateObjectMapping: 0.042341 ms MarkObjects: 0.305997 ms  DeleteObjects: 0.254047 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.636019 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 1.709563 ms (FindLiveObjects: 0.061559 ms CreateObjectMapping: 0.069367 ms MarkObjects: 0.338129 ms  DeleteObjects: 1.239906 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.891080 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.828506 ms (FindLiveObjects: 0.173568 ms CreateObjectMapping: 0.051950 ms MarkObjects: 0.348639 ms  DeleteObjects: 0.254047 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.621304 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 2.120664 ms (FindLiveObjects: 0.063661 ms CreateObjectMapping: 0.048647 ms MarkObjects: 0.471759 ms  DeleteObjects: 1.535694 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 8.039424 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.676258 ms (FindLiveObjects: 0.062761 ms CreateObjectMapping: 0.070868 ms MarkObjects: 0.293685 ms  DeleteObjects: 0.248341 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.960334 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 2.958179 ms (FindLiveObjects: 0.059457 ms CreateObjectMapping: 0.069367 ms MarkObjects: 0.656438 ms  DeleteObjects: 2.171713 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 8.101585 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.684366 ms (FindLiveObjects: 0.065764 ms CreateObjectMapping: 0.068466 ms MarkObjects: 0.305697 ms  DeleteObjects: 0.243837 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.577462 ms
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 899.
+Total: 2.246186 ms (FindLiveObjects: 0.050148 ms CreateObjectMapping: 0.072670 ms MarkObjects: 0.540826 ms  DeleteObjects: 1.581639 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 8.054439 ms
+
+Unloading 434 unused Assets to reduce memory usage. Loaded Objects now: 474.
+Total: 0.580164 ms (FindLiveObjects: 0.034533 ms CreateObjectMapping: 0.035134 ms MarkObjects: 0.280172 ms  DeleteObjects: 0.229723 ms)
+
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 3e3c -> priority: 1 
+  Thread -> id: 4374 -> priority: 1 

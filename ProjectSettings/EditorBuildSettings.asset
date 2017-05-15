@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
   - enabled: 0
     path: Assets/Scenes/UI.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Main.unity
   - enabled: 0
     path: Assets/Scenes/Over.unity
