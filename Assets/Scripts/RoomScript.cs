@@ -233,7 +233,7 @@ public class RoomScript : MonoBehaviour
 
         if(num == 4)
         {
-            GameObject g = Instantiate(room.twobytwo[Random.Range(0, room.twobytwo.Length - 1)]);
+            GameObject g = Instantiate(room.twobytwo[Random.Range(0, room.twobytwo.Length)]);
             g.transform.parent = Tiles[i][j].Tile.transform;
             Tiles[i][j].IsOccupied = true;
             Tiles[i + 1][j].IsOccupied = true;
@@ -263,7 +263,7 @@ public class RoomScript : MonoBehaviour
 
             if (n == 0)
             {
-                GameObject g = Instantiate(room.onebyone[Random.Range(0, room.onebyone.Length - 1)]);
+                GameObject g = Instantiate(room.onebyone[Random.Range(0, room.onebyone.Length)]);
                 g.transform.parent = Tiles[i][j].Tile.transform;
                 Tiles[i][j].IsOccupied = true;
 
@@ -277,7 +277,7 @@ public class RoomScript : MonoBehaviour
             }
             else if (n == 1)
             {
-                GameObject g = Instantiate(room.twobyone[Random.Range(0, room.twobyone.Length - 1)]);
+                GameObject g = Instantiate(room.twobyone[Random.Range(0, room.twobyone.Length)]);
                 g.transform.parent = Tiles[i][j].Tile.transform;
                 Tiles[i][j].IsOccupied = true;
 
@@ -293,7 +293,7 @@ public class RoomScript : MonoBehaviour
             }
             else if (n == 2)
             {
-                GameObject g = Instantiate(room.onebytwo[Random.Range(0, room.onebytwo.Length - 1)]);
+                GameObject g = Instantiate(room.onebytwo[Random.Range(0, room.onebytwo.Length)]);
                 g.transform.parent = Tiles[i][j].Tile.transform;
                 Tiles[i][j].IsOccupied = true;
                 Tiles[i+1][j].IsOccupied = true;
