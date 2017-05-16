@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SearchObject : MonoBehaviour
 {
+    private Animator animator;
+
     public enum itemCode
     {
         Empty,
@@ -18,6 +20,8 @@ public class SearchObject : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+
         color = childSprite.GetComponent<SpriteRenderer>().color;
         original = childSprite.GetComponent<SpriteRenderer>().color;
         childSprite = transform.GetChild(0);
@@ -26,7 +30,7 @@ public class SearchObject : MonoBehaviour
 
     private void Update()
     {
-        updateSprite();
+        //updateSprite();
         //Debug.Log(contents);
     }
 
@@ -53,5 +57,8 @@ public class SearchObject : MonoBehaviour
         }
     }
 
-
+    public void open()
+    {
+        animator.SetBool("Open", true);
+    }
 }

@@ -52,7 +52,7 @@ public class Player : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
 
@@ -158,6 +158,10 @@ public class Player : MonoBehaviour {
         {
             searchItem(collision);
             proximity = nextTo.search;
+            if (Input.GetButton("Jump"))
+            {
+                collision.gameObject.GetComponent<SearchObject>().open();
+            }
         }
         if (collision.gameObject.tag == "KeyObject")
         {
@@ -165,6 +169,7 @@ public class Player : MonoBehaviour {
             if (hasKeyInside && Input.GetButton("Jump"))
             {
                 collision.gameObject.GetComponent<KeyObject>().containsKey = false;
+                collision.gameObject.GetComponent<SearchObject>().open();
                 keysHeld++;
                 mainCamera.GetComponent<UI>().keyNum.text = "" + keysHeld;
                 Debug.Log("Amount of Keys" + keysHeld);
