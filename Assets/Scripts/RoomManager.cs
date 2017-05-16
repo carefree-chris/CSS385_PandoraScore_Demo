@@ -102,6 +102,8 @@ public class RoomManager : MonoBehaviour
         }
 
         placeKeys();
+        placeCookies();
+        placePotions();
 
         for (int i = 0; i < rows; i++)
         {
@@ -190,4 +192,85 @@ public class RoomManager : MonoBehaviour
 
         Rooms[row][col].GetComponent<RoomScript>().placeKey();
     }
+
+    void placeCookies()
+    {
+        int row;
+        int col;
+
+        row = Random.Range(0, rows / 2);
+        if (row == 0)
+        {
+            col = Random.Range(0, actCol - 2);
+        }
+        else
+        {
+            col = Random.Range(0, actCol - 1);
+        }
+
+        Rooms[row][col].GetComponent<RoomScript>().placeCookie();
+
+        row = Random.Range(0, rows / 2);
+        if (row == 0)
+        {
+            col = Random.Range(actCol + 2, collumns - 1);
+        }
+        else
+        {
+            col = Random.Range(actCol + 1, collumns - 1);
+        }
+
+        Rooms[row][col].GetComponent<RoomScript>().placeCookie();
+
+        row = Random.Range(rows / 2, rows - 1);
+        col = Random.Range(0, actCol - 1);
+
+        Rooms[row][col].GetComponent<RoomScript>().placeCookie();
+
+        row = Random.Range(rows / 2, rows - 1);
+        col = Random.Range(actCol + 1, collumns - 1);
+
+        Rooms[row][col].GetComponent<RoomScript>().placeCookie();
+    }
+
+    void placePotions()
+    {
+        int row;
+        int col;
+
+        row = Random.Range(0, rows / 2);
+        if (row == 0)
+        {
+            col = Random.Range(0, actCol - 2);
+        }
+        else
+        {
+            col = Random.Range(0, actCol - 1);
+        }
+
+        Rooms[row][col].GetComponent<RoomScript>().placePotion();
+
+        row = Random.Range(0, rows / 2);
+        if (row == 0)
+        {
+            col = Random.Range(actCol + 2, collumns - 1);
+        }
+        else
+        {
+            col = Random.Range(actCol + 1, collumns - 1);
+        }
+
+        Rooms[row][col].GetComponent<RoomScript>().placePotion();
+
+        row = Random.Range(rows / 2, rows - 1);
+        col = Random.Range(0, actCol - 1);
+
+        Rooms[row][col].GetComponent<RoomScript>().placePotion();
+
+        row = Random.Range(rows / 2, rows - 1);
+        col = Random.Range(actCol + 1, collumns - 1);
+
+        Rooms[row][col].GetComponent<RoomScript>().placePotion();
+    }
+
 }

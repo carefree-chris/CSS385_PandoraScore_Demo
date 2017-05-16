@@ -319,8 +319,39 @@ public class RoomScript : MonoBehaviour
 
     public void placeKey()
     {
-        int num = Random.Range(0, Interactables.Count - 1);
-        Interactables[num].tag = "HasKey";
-      Interactables[num].GetComponentInChildren<SpriteRenderer>().color = Color.cyan;
+        int num = getRandom(0, Interactables.Count);
+
+        while (Interactables[num].GetComponent<SearchObject>().contents != SearchObject.itemCode.Empty)
+        {
+            num = getRandom(0, Interactables.Count);
+        }
+
+        Interactables[num].GetComponent<SearchObject>().contents = SearchObject.itemCode.Key;
+    }
+    public void placeCookie()
+    {
+        int num = getRandom(0, Interactables.Count);
+
+        while (Interactables[num].GetComponent<SearchObject>().contents != SearchObject.itemCode.Empty)
+        {
+            num = getRandom(0, Interactables.Count);
+        }
+
+        Interactables[num].GetComponent<SearchObject>().contents = SearchObject.itemCode.Cookie;
+    }
+    public void placePotion()
+    {
+        int num = getRandom(0, Interactables.Count);
+
+        while (Interactables[num].GetComponent<SearchObject>().contents != SearchObject.itemCode.Empty)
+        {
+            num = getRandom(0, Interactables.Count);
+        }
+        Interactables[num].GetComponent<SearchObject>().contents = SearchObject.itemCode.Potion;
+    }
+
+    private int getRandom(int start, int end)
+    {
+        return Random.Range(start, end);
     }
 }
