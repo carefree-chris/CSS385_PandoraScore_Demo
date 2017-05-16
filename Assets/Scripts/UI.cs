@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour {
 
+
+    bool showMap;
     int key;
     int cookie;
     int potion;
     int gold;
+    public GameObject map;
+    string mapContent;
     public GameObject notificationBar;
     public GameObject paused;
     public GameObject Button;
@@ -18,6 +22,7 @@ public class UI : MonoBehaviour {
     public Text potionNum;
     public Text cookieNum;
     public Text noti;
+    public Text onMap;
     public GameObject Hero;
     public Text goldAmount;
     public Image key0;
@@ -29,6 +34,9 @@ public class UI : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        showMap = false;
+        map = GameObject.Find("Map");
+        map.SetActive(false);
         notificationBar = GameObject.Find("notificationBar");
         notificationBar.SetActive(false);
         paused = GameObject.Find("PauseCanvas");
@@ -38,6 +46,7 @@ public class UI : MonoBehaviour {
         key = 0;
         updateGold(0681);
         key0.enabled = false;
+        updateMap();
     }
 
 	
@@ -51,6 +60,11 @@ public class UI : MonoBehaviour {
         cookieNum.text = "x" + cookie;
         goldAmount.text = gold.ToString();
         updateKeyDisplay();
+        onMap.text = mapContent;
+        if (Input.GetKeyDown("m")) {
+            showMap = !showMap;
+            pressM();
+        }
     }
 
     public void addKey() {
@@ -149,6 +163,37 @@ public class UI : MonoBehaviour {
             key5.enabled = true;
         }
     }
+
+    public void pressM() {
+        if (showMap) {
+            updateMap();
+            map.SetActive(true);
+
+        } else {
+            map.SetActive(false);
+        }
+    }
+
+    public void updateMap() {
+        int row = 6;
+        int col = 5;
+        int actRow = 2;
+        int actCol = 2;
+        mapContent = "";
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (i == actRow && j == actCol) {
+                    mapContent += "A";
+                }
+                else {
+                    mapContent += "k";
+                }
+            }
+            mapContent += "\n";
+        }
+    }
+
+
 
     IEnumerator BacktoMenu()
     {

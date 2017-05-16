@@ -27,10 +27,15 @@ public class TitleScreen : MonoBehaviour {
         StartCoroutine(routine:PalyGame());
     }
 
-    
+    IEnumerator EndGame()
+    {
+        float fadetime = GameObject.Find("TitleScream").GetComponent<Fading>().BeginFade(1);
+        yield return new WaitForSeconds(fadetime);
+        Application.Quit();
+    }
 
     public void QuitGame()
     {
-        Application.Quit();
+        StartCoroutine(routine: EndGame());
     }
 }
