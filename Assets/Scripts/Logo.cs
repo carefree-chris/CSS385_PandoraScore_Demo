@@ -4,21 +4,43 @@ using UnityEngine;
 
 public class Logo : MonoBehaviour {
     public float maxSpeed;
-
-    private Vector3 startPosition;
+    public float startSpeed;
+    public bool loop;
+    private Vector3 startPosition; 
 
     // Use this for initialization
     void Start()
     {
+        loop = false;
         maxSpeed = 2f;
-
-        startPosition = transform.position;
+        startSpeed = 12f;
+        
+        startPosition = new Vector3(transform.position.x, transform.position.y+11f, transform.position.z);
+        
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveVertical();
+        if (loop) {
+            MoveVertical();
+        }
+        else {
+            Movedown();
+            if (transform.position.y < startPosition.y-11f) {
+                startPosition.y = startPosition.y - 11f;
+                loop = true;
+            }
+        }
+
+
+    }
+
+    void Movedown()
+    {
+        transform.position = new Vector3(transform.position.x, startPosition.y - Time.time * startSpeed, transform.position.z);
     }
 
     void MoveVertical()
