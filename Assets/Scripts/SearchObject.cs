@@ -61,28 +61,29 @@ public class SearchObject : MonoBehaviour
     public void open()
     {
         animator.SetBool("Open", true);
+
         if (contents == itemCode.Cookie)
         {
             GameObject a = GameObject.Instantiate(ItemCreate);
-            a.transform.position = transform.position;
+            a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
             a.GetComponent<ItemFloat>().run("Cookie");
         }
         else if (contents == itemCode.Potion)
         {
             GameObject a = GameObject.Instantiate(ItemCreate);
-            a.transform.position = transform.position;
+            a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
             a.GetComponent<ItemFloat>().run("Potion");
         }
         else if (contents == itemCode.Key)
         {
             GameObject a = GameObject.Instantiate(ItemCreate);
-            a.transform.position = transform.position;
+            a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
             a.GetComponent<ItemFloat>().run("Key");
         }
         else
         {
             GameObject a = GameObject.Instantiate(ItemCreate);
-            a.transform.position = transform.position;
+            a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
             a.GetComponent<ItemFloat>().run("GoldBar");
         }
     }
