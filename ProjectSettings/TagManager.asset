@@ -12,6 +12,7 @@ TagManager:
   - Monster
   - HideObject
   - SearchObject
+  - MainDoor
   layers:
   - Default
   - TransparentFX

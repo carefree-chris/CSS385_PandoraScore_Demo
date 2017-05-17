@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114930007613015148}
   m_Layer: 0
   m_Name: MainDoor
-  m_TagString: Untagged
+  m_TagString: MainDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.31, y: 0.64}
+  m_Size: {x: 0.62, y: 0.96}
 --- !u!114 &114930007613015148
 MonoBehaviour:
   m_ObjectHideFlags: 1

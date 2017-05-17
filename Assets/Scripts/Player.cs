@@ -131,6 +131,12 @@ public class Player : MonoBehaviour {
         {
             animator.SetBool("IsMoving", false);
         }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            keysHeld++;
+        }
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -177,6 +183,17 @@ public class Player : MonoBehaviour {
                 {
                     searchItem(collision);
                     proximity = nextTo.search;
+                }
+            }
+
+            if(collision.gameObject.tag == "MainDoor")
+            {
+                if (Input.GetButtonDown("Jump"))
+                {
+                    if(keysHeld >= 4)
+                    {
+                        Debug.Log("You Win");
+                    }
                 }
             }
         }
