@@ -390,7 +390,7 @@ public class RoomScript : MonoBehaviour
 
         GameObject TopDoor = Instantiate(EndDoor);
         TopDoor.transform.parent = Doors[1].transform;
-        TopDoor.transform.localPosition = new Vector3(0, 0, 0);
+        TopDoor.transform.localPosition = new Vector3(0, .1f, -.5f);
         TopDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
     }
 }
