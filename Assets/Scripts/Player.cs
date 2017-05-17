@@ -137,6 +137,8 @@ public class Player : MonoBehaviour {
             keysHeld++;
         }
 
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y % 50 * .02f);
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
