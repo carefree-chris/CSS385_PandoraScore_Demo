@@ -3335,7 +3335,7 @@ MonoBehaviour:
   cookieNum: {fileID: 1096719533}
   noti: {fileID: 534598912}
   onMap: {fileID: 1503140083}
-  Hero: {fileID: 0}
+  Hero: {fileID: 1950293229}
   goldAmount: {fileID: 1966564773}
   key0: {fileID: 459536172}
   key1: {fileID: 706860755}
@@ -16689,6 +16689,7 @@ MonoBehaviour:
   keysHeld: 0
   cookiesHeld: 0
   potionsHeld: 0
+  goldHeld: 0
   walkSpeed: 20
   sneakSpeed: 10
   runSpeed: 50
@@ -22418,7 +22419,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -433954919
+  randomSeed: -1002355309
   InitialModule:
     serializedVersion: 3
     enabled: 1

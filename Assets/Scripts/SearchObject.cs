@@ -12,7 +12,8 @@ public class SearchObject : MonoBehaviour
         Empty,
         Key,
         Cookie,
-        Potion
+        Potion,
+        Gold
     }
     public Transform childSprite;
     public itemCode contents;

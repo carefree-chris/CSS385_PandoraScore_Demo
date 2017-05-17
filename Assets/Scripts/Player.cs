@@ -6,7 +6,8 @@ public class Player : MonoBehaviour {
     public int keysHeld;
     public int cookiesHeld;
     public int potionsHeld;
-
+    public int goldHeld;
+    
     private Animator animator;
     private BoxCollider2D coll;
 
@@ -212,7 +213,12 @@ public class Player : MonoBehaviour {
                 potionsHeld++;
                 searching.gameObject.GetComponent<SearchObject>().contents = SearchObject.itemCode.Empty;
             }
-
+            if (searching.gameObject.GetComponent<SearchObject>().contents ==
+                SearchObject.itemCode.Gold)
+                {
+                    goldHeld++;
+                    searching.gameObject.GetComponent<SearchObject>().contents = SearchObject.itemCode.Empty;
+                }
             if (searching.gameObject.GetComponent<SearchObject>().contents ==
                 SearchObject.itemCode.Key)
             {
