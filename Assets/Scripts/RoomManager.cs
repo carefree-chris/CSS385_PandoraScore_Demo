@@ -107,6 +107,7 @@ public class RoomManager : MonoBehaviour
         placeKeys();
         placeCookies();
         placePotions();
+        Rooms[actRow][actCol].GetComponent<RoomScript>().placeEndDoor();
 
         for (int i = 0; i < rows; i++)
         {
