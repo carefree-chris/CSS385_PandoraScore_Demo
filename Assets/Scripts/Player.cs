@@ -186,16 +186,6 @@ public class Player : MonoBehaviour {
                 }
             }
 
-            if(collision.gameObject.tag == "MainDoor")
-            {
-                if (Input.GetButtonDown("Jump"))
-                {
-                    if(keysHeld >= 4)
-                    {
-                        Debug.Log("You Win");
-                    }
-                }
-            }
         }
         //if (collision.gameObject.tag == "KeyObject")
         //{
