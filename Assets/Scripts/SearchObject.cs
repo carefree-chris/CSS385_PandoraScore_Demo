@@ -7,6 +7,7 @@ public class SearchObject : MonoBehaviour
     private Animator animator;
     public GameObject ItemCreate;
     public bool isOpen = false;
+    public int gold = 1;
 
     public enum itemCode
     {

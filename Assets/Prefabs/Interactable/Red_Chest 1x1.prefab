@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemCreate: {fileID: 1965348282414094, guid: 01b8cc37319cd124bb31f68042bc399b, type: 2}
+  isOpen: 0
+  gold: 300
   childSprite: {fileID: 4991656861018868}
   contents: 0
   color: {r: 0, g: 0, b: 0, a: 0}

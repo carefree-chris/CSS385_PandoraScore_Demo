@@ -215,7 +215,7 @@ public class Player : MonoBehaviour {
                 }
                 else if (searching.gameObject.GetComponent<SearchObject>().contents == SearchObject.itemCode.Empty)
                 {
-                    goldHeld++;
+                    goldHeld += searching.gameObject.GetComponent<SearchObject>().gold;
                     searching.gameObject.GetComponent<SearchObject>().contents = SearchObject.itemCode.Empty;
                 }
 
