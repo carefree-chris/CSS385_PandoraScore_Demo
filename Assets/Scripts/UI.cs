@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour {
 
+    RoomManager r;
 
     bool showMap;
     int key;
@@ -46,7 +47,11 @@ public class UI : MonoBehaviour {
         key = 0;
         updateGold(0681);
         key0.enabled = false;
+
+        r = GameObject.Find("RoomManager").GetComponent<RoomManager>();
+
         updateMap();
+
     }
 
 	
@@ -61,6 +66,7 @@ public class UI : MonoBehaviour {
         goldAmount.text = gold.ToString();
         updateKeyDisplay();
         onMap.text = mapContent;
+        updateMap();
         if (Input.GetKeyDown("m")) {
             showMap = !showMap;
             pressM();
@@ -175,10 +181,11 @@ public class UI : MonoBehaviour {
     }
 
     public void updateMap() {
-        int row = 6;
-        int col = 5;
-        int actRow = 2;
-        int actCol = 2;
+        
+        int row = r.getRows();
+        int col = r.getCollumns();
+        int actRow = r.getActiveRow();
+        int actCol = r.getActiveCol();
         mapContent = "";
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {

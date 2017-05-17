@@ -142,6 +142,8 @@ public class RoomManager : MonoBehaviour
     public void EnableRoom(int i, int j)
     {
         //Rooms[i][j].SetActive(true);
+        actCol = j;
+        actRow = i;
     }
 
     public int getRows() { return rows; }
