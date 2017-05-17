@@ -6,7 +6,8 @@ public class Player : MonoBehaviour {
     public int keysHeld;
     public int cookiesHeld;
     public int potionsHeld;
-
+    public int goldHeld;
+    
     private Animator animator;
     private BoxCollider2D coll;
 
@@ -156,25 +157,24 @@ public class Player : MonoBehaviour {
         }
         if (collision.gameObject.tag == "SearchObject")
         {
-            searchItem(collision);
-            proximity = nextTo.search;
             if (Input.GetButton("Jump"))
             {
-                collision.gameObject.GetComponent<SearchObject>().open();
-            }
+                searchItem(collision);
+                proximity = nextTo.search;
+            }       
         }
-        if (collision.gameObject.tag == "KeyObject")
-        {
-            bool hasKeyInside = collision.gameObject.GetComponent<KeyObject>().containsKey;
-            if (hasKeyInside && Input.GetButton("Jump"))
-            {
-                collision.gameObject.GetComponent<KeyObject>().containsKey = false;
-                collision.gameObject.GetComponent<SearchObject>().open();
-                keysHeld++;
-                mainCamera.GetComponent<UI>().keyNum.text = "" + keysHeld;
-                Debug.Log("Amount of Keys" + keysHeld);
-            }
-        }
+        //if (collision.gameObject.tag == "KeyObject")
+        //{
+        //    bool hasKeyInside = collision.gameObject.GetComponent<KeyObject>().containsKey;
+        //    if (hasKeyInside && Input.GetButton("Jump"))
+        //    {
+        //        collision.gameObject.GetComponent<KeyObject>().containsKey = false;
+        //        collision.gameObject.GetComponent<SearchObject>().open();
+        //        keysHeld++;
+        //        mainCamera.GetComponent<UI>().keyNum.text = "" + keysHeld;
+        //        Debug.Log("Amount of Keys" + keysHeld);
+        //    }
+        //}
     }
     
 
@@ -195,29 +195,35 @@ public class Player : MonoBehaviour {
 
     private void searchItem(Collision2D searching)
     {
-        if (proximity == nextTo.search && Input.GetButtonDown("Jump")
-            && searching.gameObject.GetComponent<SearchObject>().contents != SearchObject.itemCode.Empty)
+        if (proximity == nextTo.search)
         {
-            motion = moveState.searching;
-            if (searching.gameObject.GetComponent<SearchObject>().contents ==
-                SearchObject.itemCode.Cookie)
+            if (searching.gameObject.GetComponent<SearchObject>().isOpen == false)
             {
-                cookiesHeld++;
-                searching.gameObject.GetComponent<SearchObject>().contents = SearchObject.itemCode.Empty;
-            }
+                motion = moveState.searching;
+                searching.gameObject.GetComponent<SearchObject>().open();
 
-            if (searching.gameObject.GetComponent<SearchObject>().contents ==
-                SearchObject.itemCode.Potion)
-            {
-                potionsHeld++;
-                searching.gameObject.GetComponent<SearchObject>().contents = SearchObject.itemCode.Empty;
-            }
+                if (searching.gameObject.GetComponent<SearchObject>().contents == SearchObject.itemCode.Cookie)
+                {
 
-            if (searching.gameObject.GetComponent<SearchObject>().contents ==
-                SearchObject.itemCode.Key)
-            {
-                keysHeld++;
-                searching.gameObject.GetComponent<SearchObject>().contents = SearchObject.itemCode.Empty;
+                    cookiesHeld++;
+                    searching.gameObject.GetComponent<SearchObject>().contents = SearchObject.itemCode.Empty;
+                }
+                else if (searching.gameObject.GetComponent<SearchObject>().contents == SearchObject.itemCode.Potion)
+                {
+                    potionsHeld++;
+                    searching.gameObject.GetComponent<SearchObject>().contents = SearchObject.itemCode.Empty;
+                }
+                else if (searching.gameObject.GetComponent<SearchObject>().contents == SearchObject.itemCode.Empty)
+                {
+                    goldHeld++;
+                    searching.gameObject.GetComponent<SearchObject>().contents = SearchObject.itemCode.Empty;
+                }
+
+                else if (searching.gameObject.GetComponent<SearchObject>().contents == SearchObject.itemCode.Key)
+                {
+                    keysHeld++;
+                    searching.gameObject.GetComponent<SearchObject>().contents = SearchObject.itemCode.Empty;
+                }
             }
         }
     }

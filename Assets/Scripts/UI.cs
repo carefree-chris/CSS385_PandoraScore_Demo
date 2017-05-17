@@ -13,6 +13,7 @@ public class UI : MonoBehaviour {
     int cookie;
     int potion;
     int gold;
+
     public GameObject map;
     string mapContent;
     public GameObject notificationBar;
@@ -61,10 +62,14 @@ public class UI : MonoBehaviour {
        // key = Hero.gameObject.GetComponent<Player>().keysHeld;
         //potion = Hero.gameObject.GetComponent<Player>().potionsHeld;
        
-        potionNum.text = "x" + potion;
-        cookieNum.text = "x" + cookie;
+        potionNum.text = "x" + Hero.gameObject.GetComponent<Player>().potionsHeld;
+        cookieNum.text = "x" + Hero.gameObject.GetComponent<Player>().cookiesHeld;
+        gold = Hero.gameObject.GetComponent<Player>().goldHeld;
         goldAmount.text = gold.ToString();
+        key = Hero.gameObject.GetComponent<Player>().keysHeld;
+
         updateKeyDisplay();
+        
         onMap.text = mapContent;
         updateMap();
         if (Input.GetKeyDown("m")) {
@@ -74,7 +79,7 @@ public class UI : MonoBehaviour {
     }
 
     public void addKey() {
-        key ++;
+        key = Hero.gameObject.GetComponent<Player>().keysHeld;
         SendNotification("You get a key.");
     }
 

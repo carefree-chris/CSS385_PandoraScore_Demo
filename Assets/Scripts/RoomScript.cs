@@ -354,4 +354,18 @@ public class RoomScript : MonoBehaviour
     {
         return Random.Range(start, end);
     }
+
+    public bool canPlaceItem()
+    {
+        bool b = false;
+        for(int i = 0; i < Interactables.Count; i++)
+        {
+            if (Interactables[i].GetComponent<SearchObject>().contents == SearchObject.itemCode.Empty)
+            {
+                b = true;
+            }
+        }
+
+        return b;
+    }
 }

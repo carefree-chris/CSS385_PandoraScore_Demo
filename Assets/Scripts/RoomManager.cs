@@ -14,6 +14,9 @@ public class RoomManager : MonoBehaviour
     public int actRow = 0;
     public int actCol = 2;
 
+    public int CookieCount;
+    public int PotionCount;
+
     public GameObject Room;
 
     private GameObject[][] Rooms;
@@ -92,13 +95,13 @@ public class RoomManager : MonoBehaviour
                 //Rooms[i][j].transform.position = new Vector3((j - 2) * 1500, i * -1000, 0);
                 Rooms[i][j].transform.position = new Vector3(((j - 2) * 1500) * sizeModifier, (i * -1000) * sizeModifier, 0);
 
-                  //Add all rooms to our monster's patrol route. TODO - Remove safe room.
-                  Vector3 patrolPoint = new Vector3(Rooms[i][j].transform.position.x, Rooms[i][j].transform.position.y, 0f);
-                  if (patrolPoint != null && (Rooms[i][j] != Rooms[0][4])) //Make sure the room we're adding isn't the safe room (starting)
-                  {
-                     GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>().AddPatrolPoint(patrolPoint);
-                  }
-           }
+                //Add all rooms to our monster's patrol route. TODO - Remove safe room.
+                Vector3 patrolPoint = new Vector3(Rooms[i][j].transform.position.x, Rooms[i][j].transform.position.y, 0f);
+                if (patrolPoint != null && (Rooms[i][j] != Rooms[0][4])) //Make sure the room we're adding isn't the safe room (starting)
+                {
+                    GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>().AddPatrolPoint(patrolPoint);
+                }
+            }
         }
 
         placeKeys();
@@ -157,122 +160,56 @@ public class RoomManager : MonoBehaviour
 
     void placeKeys()
     {
-        int row;
-        int col;
-
-        row = Random.Range(0, rows / 2);
-        if (row == 0)
-        {
-            col = Random.Range(0, actCol - 2);
-        }
-        else
-        {
-            col = Random.Range(0, actCol - 1);
-        }
-
-        Rooms[row][col].GetComponent<RoomScript>().placeKey();
-
-        row = Random.Range(0, rows / 2);
-        if (row == 0)
-        {
-            col = Random.Range(actCol + 2, collumns - 1);
-        }
-        else
-        {
-            col = Random.Range(actCol + 1, collumns - 1);
-        }
-
-        Rooms[row][col].GetComponent<RoomScript>().placeKey();
-
-        row = Random.Range(rows / 2, rows - 1);
-        col = Random.Range(0, actCol - 1);
-
-        Rooms[row][col].GetComponent<RoomScript>().placeKey();
-
-        row = Random.Range(rows / 2, rows - 1);
-        col = Random.Range(actCol + 1, collumns - 1);
-
-        Rooms[row][col].GetComponent<RoomScript>().placeKey();
+        placeRandom(0, rows / 2, 0, collumns / 2, "Key"); //top left
+        placeRandom(rows/2, rows, 0, collumns / 2, "Key"); //bottom left
+        placeRandom(0, rows / 2, collumns / 2, collumns, "Key"); //top right
+        placeRandom(rows/2, rows, collumns/2, collumns, "Key"); //bottom right
     }
 
     void placeCookies()
     {
-        int row;
-        int col;
-
-        row = Random.Range(0, rows / 2);
-        if (row == 0)
+        for(int i = 0; i < CookieCount; i++)
         {
-            col = Random.Range(0, actCol - 2);
+            placeRandom(0, rows, 0, collumns, "Cookie");
         }
-        else
-        {
-            col = Random.Range(0, actCol - 1);
-        }
-
-        Rooms[row][col].GetComponent<RoomScript>().placeCookie();
-
-        row = Random.Range(0, rows / 2);
-        if (row == 0)
-        {
-            col = Random.Range(actCol + 2, collumns - 1);
-        }
-        else
-        {
-            col = Random.Range(actCol + 1, collumns - 1);
-        }
-
-        Rooms[row][col].GetComponent<RoomScript>().placeCookie();
-
-        row = Random.Range(rows / 2, rows - 1);
-        col = Random.Range(0, actCol - 1);
-
-        Rooms[row][col].GetComponent<RoomScript>().placeCookie();
-
-        row = Random.Range(rows / 2, rows - 1);
-        col = Random.Range(actCol + 1, collumns - 1);
-
-        Rooms[row][col].GetComponent<RoomScript>().placeCookie();
     }
 
     void placePotions()
     {
-        int row;
-        int col;
-
-        row = Random.Range(0, rows / 2);
-        if (row == 0)
+        for (int i = 0; i < PotionCount; i++)
         {
-            col = Random.Range(0, actCol - 2);
+            placeRandom(0, rows, 0, collumns, "Potion");
         }
-        else
-        {
-            col = Random.Range(0, actCol - 1);
-        }
+    }
 
-        Rooms[row][col].GetComponent<RoomScript>().placePotion();
+    private void placeRandom(int startRow, int endRow, int startCol, int endCol, string name)
+    {
+        bool canPlace = false;
+        int row = 0;
+        int col = 0;
 
-        row = Random.Range(0, rows / 2);
-        if (row == 0)
+        while (canPlace == false)
         {
-            col = Random.Range(actCol + 2, collumns - 1);
-        }
-        else
-        {
-            col = Random.Range(actCol + 1, collumns - 1);
+            row = Random.Range(startRow, endRow);
+            col = Random.Range(startCol, endCol);
+            if (Rooms[row][col].GetComponent<RoomScript>().canPlaceItem())
+            {
+                canPlace = true;
+            }
         }
 
-        Rooms[row][col].GetComponent<RoomScript>().placePotion();
-
-        row = Random.Range(rows / 2, rows - 1);
-        col = Random.Range(0, actCol - 1);
-
-        Rooms[row][col].GetComponent<RoomScript>().placePotion();
-
-        row = Random.Range(rows / 2, rows - 1);
-        col = Random.Range(actCol + 1, collumns - 1);
-
-        Rooms[row][col].GetComponent<RoomScript>().placePotion();
+        if (name == "Cookie")
+        {
+            Rooms[row][col].GetComponent<RoomScript>().placeCookie();
+        }
+        if (name == "Key")
+        {
+            Rooms[row][col].GetComponent<RoomScript>().placeKey();
+        }
+        if (name == "Potion")
+        {
+            Rooms[row][col].GetComponent<RoomScript>().placePotion();
+        }
     }
 
 }

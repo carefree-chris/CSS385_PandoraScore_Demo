@@ -153,6 +153,7 @@ MonoBehaviour:
   keysHeld: 0
   cookiesHeld: 0
   potionsHeld: 0
+  goldHeld: 0
   walkSpeed: 25
   sneakSpeed: 10
   runSpeed: 50

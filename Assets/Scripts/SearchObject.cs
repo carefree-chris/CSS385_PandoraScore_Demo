@@ -6,13 +6,15 @@ public class SearchObject : MonoBehaviour
 {
     private Animator animator;
     public GameObject ItemCreate;
+    public bool isOpen = false;
 
     public enum itemCode
     {
         Empty,
         Key,
         Cookie,
-        Potion
+        Potion,
+        Gold
     }
     public Transform childSprite;
     public itemCode contents;
@@ -60,31 +62,36 @@ public class SearchObject : MonoBehaviour
 
     public void open()
     {
-        animator.SetBool("Open", true);
+        if (isOpen == false)
+        {
+            animator.SetBool("Open", true);
 
-        if (contents == itemCode.Cookie)
-        {
-            GameObject a = GameObject.Instantiate(ItemCreate);
-            a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
-            a.GetComponent<ItemFloat>().run("Cookie");
-        }
-        else if (contents == itemCode.Potion)
-        {
-            GameObject a = GameObject.Instantiate(ItemCreate);
-            a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
-            a.GetComponent<ItemFloat>().run("Potion");
-        }
-        else if (contents == itemCode.Key)
-        {
-            GameObject a = GameObject.Instantiate(ItemCreate);
-            a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
-            a.GetComponent<ItemFloat>().run("Key");
-        }
-        else
-        {
-            GameObject a = GameObject.Instantiate(ItemCreate);
-            a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
-            a.GetComponent<ItemFloat>().run("GoldBar");
+            if (contents == itemCode.Cookie)
+            {
+                GameObject a = GameObject.Instantiate(ItemCreate);
+                a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
+                a.GetComponent<ItemFloat>().run("Cookie");
+            }
+            else if (contents == itemCode.Potion)
+            {
+                GameObject a = GameObject.Instantiate(ItemCreate);
+                a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
+                a.GetComponent<ItemFloat>().run("Potion");
+            }
+            else if (contents == itemCode.Key)
+            {
+                GameObject a = GameObject.Instantiate(ItemCreate);
+                a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
+                a.GetComponent<ItemFloat>().run("Key");
+            }
+            else
+            {
+                GameObject a = GameObject.Instantiate(ItemCreate);
+                a.transform.position = new Vector3(transform.position.x, transform.position.y, -2);
+                a.GetComponent<ItemFloat>().run("GoldBar");
+            }
+
+            isOpen = true;
         }
     }
 }
