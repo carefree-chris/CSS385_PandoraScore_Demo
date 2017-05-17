@@ -143,25 +143,42 @@ public class Player : MonoBehaviour {
     //Changes State Based on if touching Special Objects
     private void OnCollisionStay2D(Collision2D collision)
     {
-        //Debug.Log(collision);
-        if (collision.gameObject.tag == "HideObject")
+        //Debug.Log(collision.gameObject.transform.position);
+        //Debug.Log(animator.GetInteger("Direction"));
+
+        //Directional Facing Cases
+        if ((animator.GetInteger("Direction") == 1 //Facing Left
+            && collision.gameObject.transform.position.x < this.gameObject.transform.position.x
+            && Mathf.Abs(collision.gameObject.transform.position.y - this.gameObject.transform.position.y) < 1.0f)
+            || (animator.GetInteger("Direction") == 3 //Facing Right
+            && collision.gameObject.transform.position.x > this.gameObject.transform.position.x
+            && Mathf.Abs(collision.gameObject.transform.position.y - this.gameObject.transform.position.y) < 1.0f)
+            || (animator.GetInteger("Direction") == 0 //Facing Down
+            && collision.gameObject.transform.position.y < this.gameObject.transform.position.y
+            && Mathf.Abs(collision.gameObject.transform.position.x - this.gameObject.transform.position.x) < 1.0f)
+            || (animator.GetInteger("Direction") == 2 //Facing Up
+            && collision.gameObject.transform.position.y > this.gameObject.transform.position.y
+            && Mathf.Abs(collision.gameObject.transform.position.x - this.gameObject.transform.position.x) < 1.0f))
         {
-            if (Input.GetButton("Jump"))
+            if (collision.gameObject.tag == "HideObject")
             {
-                motion = moveState.hiding;
-               
-                collision.gameObject.GetComponent<HideHero>().Hero = this.gameObject;
-               gameObject.SetActive(false);
-         }
-            proximity = nextTo.hide;
-        }
-        if (collision.gameObject.tag == "SearchObject")
-        {
-            if (Input.GetButton("Jump"))
+                if (Input.GetButton("Jump"))
+                {
+                    motion = moveState.hiding;
+
+                    collision.gameObject.GetComponent<HideHero>().Hero = this.gameObject;
+                    gameObject.SetActive(false);
+                }
+                proximity = nextTo.hide;
+            }
+            if (collision.gameObject.tag == "SearchObject")
             {
-                searchItem(collision);
-                proximity = nextTo.search;
-            }       
+                if (Input.GetButton("Jump"))
+                {
+                    searchItem(collision);
+                    proximity = nextTo.search;
+                }
+            }
         }
         //if (collision.gameObject.tag == "KeyObject")
         //{

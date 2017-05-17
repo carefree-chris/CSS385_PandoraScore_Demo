@@ -7883,7 +7883,7 @@ MonoBehaviour:
     - {fileID: 1267239669845006, guid: efa667a703108e842be3d545cb42fbd0, type: 2}
     threebythree: []
   Door: {fileID: 1508593304160710, guid: 535620997a1719e42b87957008201e8e, type: 2}
-  EndDoor: {fileID: 1508593304160710, guid: 535620997a1719e42b87957008201e8e, type: 2}
+  EndDoor: {fileID: 1410134081622160, guid: 979d268e941b986419bb1b7b10706590, type: 2}
 --- !u!114 &114111138045421998
 MonoBehaviour:
   m_ObjectHideFlags: 1
