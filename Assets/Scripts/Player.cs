@@ -19,6 +19,9 @@ public class Player : MonoBehaviour {
     public float runSpeed;
     private float speed;
 
+    private bool invisibility;
+    private float fadeTimer;
+     
     private enum moveState
     {
         sneak,
@@ -41,18 +44,16 @@ public class Player : MonoBehaviour {
     }
     private nextTo proximity;
 
-
-
+    public SpriteRenderer childSprite;
 
     // Use this for initialization
     void Start () {
         animator = GetComponentInChildren<Animator>();
         //coll = GetComponent<BoxCollider2D>();
         //mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-
         proximity = nextTo.open;
         motion = moveState.idle;
-
+        childSprite = GetComponentInChildren<SpriteRenderer>();
     }
 	
 	// Update is called once per frame
@@ -142,21 +143,20 @@ public class Player : MonoBehaviour {
 
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y % 50 * .02f);
 
+        useCookie();
+        goInvisible();
     }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         proximity = nextTo.open;
     }
-    
-    
-    
-    
+
     //Changes State Based on if touching Special Objects
     private void OnCollisionStay2D(Collision2D collision)
     {
         //Debug.Log(collision.gameObject.transform.position);
         //Debug.Log(animator.GetInteger("Direction"));
-
 
         //Scalar for Object Size
         if ((collision.transform.position.x * 10) % 10 != 0 && (collision.transform.position.y * 10) % 10 == 0)
@@ -221,17 +221,28 @@ public class Player : MonoBehaviour {
 
     private void goInvisible()
     {
+        float currentTime = Time.time;
+        if (currentTime > fadeTimer)
+        {
+            invisibility = false;
+            childSprite.color = new Color(childSprite.color.r, childSprite.color.g, childSprite.color.b, 1.0f);
+        }
 
-        //INVISIBILITY
-        if (motion == moveState.hiding)
+        if (Input.GetButtonDown("Fire3") && potionsHeld > 0)
         {
-            gameObject.SetActive(false);
-            //visible.enabled = false;
+            if (invisibility == false)
+            {
+                potionsHeld--;
+                invisibility = true;
+                childSprite.color = new Color(childSprite.color.r, childSprite.color.g, childSprite.color.b, .5f);
+                fadeTimer = Time.time + 10;
+            }
         }
-        else
-        {
-            //visible.enabled = true;
-        }
+    }
+
+    private void useCookie()
+    {
+
     }
 
     //Search Items
