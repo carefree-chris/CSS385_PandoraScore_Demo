@@ -167,7 +167,6 @@ public class Player : MonoBehaviour {
         {
             objectScalar = 2;
         }
-        Debug.Log("Object Scalar Size " + objectScalar);
 
         //Directional Facing Cases
         if ((animator.GetInteger("Direction") == 1 //Facing Left
