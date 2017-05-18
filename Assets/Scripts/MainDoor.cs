@@ -29,6 +29,7 @@ public class MainDoor : MonoBehaviour {
                 {
                     //DO THINGS!!!
                     Debug.Log("The Door Opens..");
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<UI>().WinGame();
                 }
             }
         }

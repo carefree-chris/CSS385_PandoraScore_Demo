@@ -31,8 +31,9 @@ public class healthbar : MonoBehaviour {
         hitpoint -= damage;
         if (hitpoint < 0) {
             hitpoint = 0;
-            Debug.Log("Dead!");
-            SceneManager.LoadSceneAsync("Over");
+            //Debug.Log("Dead!");
+            //SceneManager.LoadSceneAsync("Over");
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<UI>().ResetGame();
       }
         UpdateHealthbar();
     }

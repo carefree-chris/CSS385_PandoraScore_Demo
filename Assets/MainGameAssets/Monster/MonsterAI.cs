@@ -275,7 +275,7 @@ public class MonsterAI : MonoBehaviour {
             Debug.Log("Current Target: " + patrolNodes[currentNode].transform.position + ", " + (transform.position - patrolNodes[currentNode].GetComponent<Transform>().position).magnitude);
 
         }
-
+        mainCamera.GetComponent<UI>().ResetGame();
         
     }
 
@@ -421,12 +421,42 @@ public class MonsterAI : MonoBehaviour {
     }
     #endregion
 
-    public IEnumerator ResetGame()
+    
+
+    public void ResetActors()
     {
+        //if (GetPlayerRoomX() != safeRoomX || GetPlayerRoomY() != safeRoomY)
+        //mainCamera.GetComponent<CameraScript>().TransitionRoom(safeRoomX); //TODO fix this for modularity
 
-        yield return new WaitForSeconds(10f);
-        mainCamera.GetComponent<healthbar>().HealDamage(100f);
+        //TODO fix this to fit with room size
+        //mainCamera.GetComponent<CameraScript>().TransitionRoom(0);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
 
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
+        
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(1);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(1);
+        mainCamera.GetComponent<CameraScript>().TransitionRoom(1);
+
+        proxy.transform.position = new Vector3(-75f, -898f, -10f); //TODO set this to a proper starting location.
+        targetActual.transform.position = new Vector3(safeRoom.transform.position.x, safeRoom.transform.position.y, -0.5f);
+        Debug.Log("TEST: " + new Vector3(safeRoom.transform.position.x, safeRoom.transform.position.y, -0.5f));
+        mainCamera.GetComponent<healthbar>().FullHealth();
+        
     }
     
 

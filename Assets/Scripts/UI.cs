@@ -6,7 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour {
 
-    SoundManager soundManager;
+    public int maxLives = 3;
+    public int currentLives = 3;
+    public Text resetText;
+    public Image resetImage;
+    private bool resetInProgress = false;
+
+    //SoundManager soundManager;
     RoomManager r;
 
     bool showMap;
@@ -37,11 +43,14 @@ public class UI : MonoBehaviour {
 
     void Awake()
     {
-        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        //soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        resetText.text = "";
+        resetImage.enabled = false;
     }
 
     // Use this for initialization
     void Start () {
+        //resetScreen.gameObject.SetActive(false);
         showMap = false;
         map = GameObject.Find("Map");
         map.SetActive(false);
@@ -231,5 +240,86 @@ public class UI : MonoBehaviour {
         yield return new WaitForSeconds(duration);   //Wait
         notificationBar.SetActive(false);
         Debug.Log("End Wait() function and the time is: " + Time.time);
+    }
+
+    public void ResetGame()
+    {
+        
+        if (resetInProgress)
+        {
+            return;
+        }
+        else
+        {
+            resetInProgress = true;
+        }
+
+        if (currentLives <= 0)
+        {
+            Debug.Log("Dead!");
+            currentLives--;
+            SceneManager.LoadSceneAsync("Over");
+        } else
+        {
+            
+            StartCoroutine(ResetScreenFade());
+        }
+        
+    }
+
+    public void WinGame()
+    {
+        StartCoroutine(WinGameFade());
+    }
+
+    private IEnumerator WinGameFade()
+    {
+        float fadetime = GameObject.Find("MainCamera").GetComponent<Fading>().BeginFade(1);
+        yield return new WaitForSeconds(fadetime);
+        SceneManager.LoadSceneAsync("Win");
+    }
+
+    private IEnumerator ResetScreenFade()
+    {
+        //string losingText = "THE MONSTER CAUGHT YOU.\n\nYOU HAVE " + currentLives + " CHANCES BEFORE THE DOOR IS SEALED.";
+       
+        float fadetime = GameObject.Find("MainCamera").GetComponent<Fading>().BeginFade(1);
+        yield return new WaitForSeconds(fadetime);
+        resetImage.enabled = true;
+        fadetime = GameObject.Find("MainCamera").GetComponent<Fading>().BeginFade(-1);
+
+        resetText.text = "THE MONSTER CAUGHT YOU.\n\n";
+        yield return new WaitForSeconds(1.5f);
+
+        GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>().ResetActors();
+
+        yield return new WaitForSeconds(0.2f);
+        resetText.text = "THE MONSTER CAUGHT YOU.\n\nYOU";
+        yield return new WaitForSeconds(0.2f);
+        resetText.text = "THE MONSTER CAUGHT YOU.\n\nYOU HAVE";
+        yield return new WaitForSeconds(0.2f);
+        resetText.text = "THE MONSTER CAUGHT YOU.\n\nYOU HAVE " + currentLives;
+        yield return new WaitForSeconds(0.2f);
+        resetText.text = "THE MONSTER CAUGHT YOU.\n\nYOU HAVE " + currentLives + " CHANCES";
+        yield return new WaitForSeconds(0.2f);
+        resetText.text = "THE MONSTER CAUGHT YOU.\n\nYOU HAVE " + currentLives + " CHANCES LEFT";
+            yield return new WaitForSeconds(0.2f);
+        resetText.text = "THE MONSTER CAUGHT YOU.\n\nYOU HAVE " + currentLives + " CHANCES LEFT BEFORE";
+        yield return new WaitForSeconds(0.2f);
+        resetText.text = "THE MONSTER CAUGHT YOU.\n\nYOU HAVE " + currentLives + " CHANCES BEFORE THE DOOR";
+        yield return new WaitForSeconds(0.4f);
+        resetText.text = "THE MONSTER CAUGHT YOU.\n\nYOU HAVE " + currentLives + " CHANCES BEFORE THE DOOR IS";
+        yield return new WaitForSeconds(0.4f);
+        resetText.text = "THE MONSTER CAUGHT YOU.\n\nYOU HAVE " + currentLives + " CHANCES BEFORE THE DOOR IS SEALED.";
+        yield return new WaitForSeconds(1);
+        fadetime = GameObject.Find("MainCamera").GetComponent<Fading>().BeginFade(1);
+        yield return new WaitForSeconds(fadetime);
+        resetImage.enabled = false;
+        resetText.text = "";
+        fadetime = GameObject.Find("MainCamera").GetComponent<Fading>().BeginFade(-1);
+        yield return new WaitForSeconds(fadetime);
+        currentLives--;
+        resetInProgress = false;
+
     }
 }

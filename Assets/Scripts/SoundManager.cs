@@ -6,8 +6,8 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour {
 
     
-    private GameObject player;
-    private GameObject monster;
+    //private GameObject player;
+    //private GameObject monster;
 
 
     //Ambient effects and music
@@ -32,8 +32,8 @@ public class SoundManager : MonoBehaviour {
     void Awake()
     {
         //DontDestroyOnLoad(gameObject);
-        player = GameObject.FindGameObjectWithTag("Player");
-        monster = GameObject.FindGameObjectWithTag("Monster");
+        //player = GameObject.FindGameObjectWithTag("Player");
+        //monster = GameObject.FindGameObjectWithTag("Monster");
 
        
         

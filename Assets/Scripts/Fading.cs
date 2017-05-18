@@ -10,6 +10,8 @@ public class Fading : MonoBehaviour {
 	private float alpha = 1.0f;			// the texture's alpha value between 0 and 1
 	private int fadeDir = -1;			// the direction to fade: in = -1 or out = 1
 
+    
+
 	void OnGUI()
 	{
 		// fade out/in the alpha value using a direction, a speed and Time.deltaTime to convert the operation to seconds

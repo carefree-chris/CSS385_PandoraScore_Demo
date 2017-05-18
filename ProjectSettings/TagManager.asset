@@ -15,6 +15,7 @@ TagManager:
   - MainDoor
   - StartNode
   - SoundManager
+  - ResetScreen
   layers:
   - Default
   - TransparentFX
