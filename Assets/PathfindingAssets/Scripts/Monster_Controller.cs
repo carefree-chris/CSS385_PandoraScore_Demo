@@ -95,10 +95,10 @@ public class Monster_Controller : MonoBehaviour {
 	void Update () {
 
         //For debugging
-        if (Input.GetButtonDown("Fire2"))
-        {
-            playerInvisible = !playerInvisible;
-        }
+        //if (Input.GetButtonDown("Fire2"))
+        //{
+        //    playerInvisible = !playerInvisible;
+        //}
 
         //TODO remove debug text when no longer needed.
         debugText.text = CurrentStateText + "\n" + CurrentSubstateText + "\n" + PlayerVisibleText;
