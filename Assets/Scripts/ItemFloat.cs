@@ -20,9 +20,15 @@ public class ItemFloat : MonoBehaviour {
 	void Update () {
 		if(isRunning == true)
         {
-            transform.position = Vector3.Lerp(transform.position, endPos, .2f);
 
-            if(timer > 1)
+            if(timer < 2)
+                transform.position = Vector3.Lerp(transform.position, endPos, .2f);
+
+            if(timer > 2)
+            {
+                spRend.color = new Color(spRend.color.r, spRend.color.g, spRend.color.b, 0);
+            }
+            else if(timer > 1)
             {
                 spRend.color = new Color(spRend.color.r, spRend.color.g, spRend.color.b, (2f - timer) * 1f);
             }
@@ -73,7 +79,12 @@ public class ItemFloat : MonoBehaviour {
             sprites[i].SetActive(false);
         }
 
-        endPos = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        if (GameObject.Find("Player").GetComponent<Player>().getMoveState() == Player.moveState.sneak)
+        {
+            timer = 3;
+        }
+
+            endPos = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
 
 
         for (int i = 0; i < names.Length; i++)

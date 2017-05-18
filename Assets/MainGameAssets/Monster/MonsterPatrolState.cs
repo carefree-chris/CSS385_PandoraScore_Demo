@@ -83,6 +83,7 @@ public class MonsterPatrolState : IMonsterState {
     {
         monster.currentState = monster.monsterChaseState;
         monster.agent.autoBraking = true;
+        monster.soundManager.PlaySingle(monster.monsterRoar);
     }
 
     public void ToMonsterSearchState()

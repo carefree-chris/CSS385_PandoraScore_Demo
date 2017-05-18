@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
     public float fadeTimer;
     public GameObject Distraction;
      
-    private enum moveState
+    public enum moveState
     {
         sneak,
         walk,
@@ -135,6 +135,19 @@ public class Player : MonoBehaviour {
         if(horizontal + vertical == 0)
         {
             animator.SetBool("IsMoving", false);
+        }
+
+        if (motion == moveState.sneak)
+        {
+            animator.speed = .4f;
+        }
+        else if (motion == moveState.walk)
+        {
+            animator.speed = .9f;
+        }
+        else if (motion == moveState.run)
+        {
+            animator.speed = 1.4f;
         }
 
         if (Input.GetKeyDown(KeyCode.K))
@@ -262,7 +275,7 @@ public class Player : MonoBehaviour {
         {
             if (searching.gameObject.GetComponent<SearchObject>().isOpen == false)
             {
-                motion = moveState.searching;
+                //motion = moveState.searching;
                 searching.gameObject.GetComponent<SearchObject>().open();
 
                 if (searching.gameObject.GetComponent<SearchObject>().contents == SearchObject.itemCode.Cookie)
@@ -299,4 +312,9 @@ public class Player : MonoBehaviour {
     //        transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(c.normal.x * dist, c.normal.y * dist, 0), .8f);
     //    }
     //}
+
+    public moveState getMoveState()
+    {
+        return motion;
+    }
 }

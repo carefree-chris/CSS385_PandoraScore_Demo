@@ -52,6 +52,7 @@ public class MonsterSearchState : IMonsterState {
     {
         currentSubState = SearchingSubState.CheckingLastPosition;
         
+        
     }
 
     private void CheckingLastPosition()
@@ -76,6 +77,10 @@ public class MonsterSearchState : IMonsterState {
                 {
                     if (monster.debugInfo)
                         Debug.Log("Player found in hiding place");
+
+                    monster.soundManager.RandomizeSfx(monster.soundManager.openObject);
+                    hidingSpot.gameObject.GetComponent<HideHero>().LeaveObject();
+                    monster.mainCamera.GetComponent<healthbar>().TakeDemage(monster.damageOnContact);
                 }
                     
             }
@@ -182,6 +187,7 @@ public class MonsterSearchState : IMonsterState {
                 if (monster.debugInfo)
                     Debug.Log("Player found!");
 
+                monster.soundManager.RandomizeSfx(monster.soundManager.openObject);
                 furniture.gameObject.GetComponent<HideHero>().LeaveObject();
                 monster.mainCamera.GetComponent<healthbar>().TakeDemage(monster.damageOnContact);
 
@@ -193,6 +199,7 @@ public class MonsterSearchState : IMonsterState {
 
             if (monster.furnitureSearchTime >= monster.maxFurnitureSearchTime)
             {
+                monster.soundManager.RandomizeSfx(monster.soundManager.openObject);
                 monster.furnitureSearchTime = 0f;
                 furnitureIndex++;
                 return;
