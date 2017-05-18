@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour {
 
+    SoundManager soundManager;
     RoomManager r;
 
     bool showMap;
@@ -33,6 +34,11 @@ public class UI : MonoBehaviour {
     public Image key3;
     public Image key4;
     public Image key5;
+
+    void Awake()
+    {
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+    }
 
     // Use this for initialization
     void Start () {

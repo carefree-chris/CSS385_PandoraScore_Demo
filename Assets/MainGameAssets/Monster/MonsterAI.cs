@@ -5,6 +5,12 @@ using UnityEngine.AI;
 
 public class MonsterAI : MonoBehaviour {
  
+    public AudioSource patrolSound;
+    public AudioSource transitionSound;
+
+    [HideInInspector] public SoundManager soundManager;
+    [SerializeField] public AudioClip monsterPatrolSound;
+    [SerializeField] public AudioClip monsterRoar;
 
     [SerializeField] public float patrolSpeed;
     [SerializeField] public float chaseSpeed;
@@ -67,6 +73,7 @@ public class MonsterAI : MonoBehaviour {
         monsterDistractionState = new MonsterDistractionState(this);
 
         anim = GetComponent<Animator>();
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         
 
         //This is just so we don't have to write GetComponent a lot later.
@@ -89,7 +96,8 @@ public class MonsterAI : MonoBehaviour {
         GameObject testNode = patrolNodes[0];
         //AddPatrolPoint(testNode);
         //SetDestination();
-       
+
+        patrolSound.clip = monsterPatrolSound;
         SetDestination();
         
         //Get the dimensions of the standard room.
@@ -114,6 +122,14 @@ public class MonsterAI : MonoBehaviour {
         if (debugInfo && Input.GetKeyDown(KeyCode.Q))
         {
             DebugInfo();
+        }
+
+        if (agent.pathStatus.ToString() != "PathComplete")
+        {
+            Debug.Log("Error: Got stuck");
+            currentNode++;
+            SetDestination();
+            
         }
 
     }
@@ -259,7 +275,8 @@ public class MonsterAI : MonoBehaviour {
             Debug.Log("Current Target: " + patrolNodes[currentNode].transform.position + ", " + (transform.position - patrolNodes[currentNode].GetComponent<Transform>().position).magnitude);
 
         }
-            
+
+        
     }
 
     //We want to make sure that the monster proxy will avoid the start room
@@ -404,7 +421,13 @@ public class MonsterAI : MonoBehaviour {
     }
     #endregion
 
+    public IEnumerator ResetGame()
+    {
 
+        yield return new WaitForSeconds(10f);
+        mainCamera.GetComponent<healthbar>().HealDamage(100f);
+
+    }
     
 
 }
