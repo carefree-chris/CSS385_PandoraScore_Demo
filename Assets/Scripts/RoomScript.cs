@@ -179,13 +179,12 @@ public class RoomScript : MonoBehaviour
         Decor[10] = c.transform.FindChild("Left Top").gameObject;
         Decor[11] = c.transform.FindChild("Left Bottom").gameObject;
 
-
-        for (int i = 0; i < Decor.Length; i++)
+        if (Random.Range(0, 100) > 50 && DecorItems.Length != 0)
         {
-            if(Random.Range(0,100) > 50 && DecorItems.Length != 0)
-            {
-                int r = Random.Range(0, DecorItems.Length);
+            int r = Random.Range(0, DecorItems.Length);
 
+            for (int i = 0; i < Decor.Length; i++)
+            {
                 GameObject item = Instantiate(DecorItems[r]);
                 item.transform.parent = Decor[i].transform;
                 item.transform.localPosition = new Vector3(0, 0, 0);
