@@ -9,9 +9,9 @@ public class HideHero : MonoBehaviour
 
     private void FixedUpdate()
     {
-            if (Input.GetButtonDown("Jump"))
-            {
-                Hero.SetActive(true);
-            }
+        if (Input.GetButtonDown("Jump"))
+        {
+            Hero.SetActive(true);
+        }
     }
 }
