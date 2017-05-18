@@ -20,7 +20,8 @@ public class Player : MonoBehaviour {
     private float speed;
 
     private bool invisibility;
-    private float fadeTimer;
+    public float fadeTimer;
+    public GameObject Distraction;
      
     private enum moveState
     {
@@ -242,7 +243,11 @@ public class Player : MonoBehaviour {
 
     private void useCookie()
     {
-
+        if (Input.GetButtonDown("Submit") && cookiesHeld > 0)
+        {
+            cookiesHeld--;
+            GameObject Decoy = Instantiate(Distraction, transform.position, Quaternion.identity);
+        }
     }
 
     //Search Items

@@ -157,6 +157,10 @@ MonoBehaviour:
   walkSpeed: 20
   sneakSpeed: 10
   runSpeed: 50
+  fadeTimer: 0
+  Distraction: {fileID: 1911415099502084, guid: edeb4b7be40352d44b5fa49bcd3abdb5,
+    type: 2}
+  childSprite: {fileID: 1828777267931092}
 --- !u!212 &212475685847062396
 SpriteRenderer:
   m_ObjectHideFlags: 1
