@@ -94,13 +94,31 @@ public class RoomManager : MonoBehaviour
 
                 //TODO Commented out section is original, uncomment and delete lines below to return to original condition
                 //Rooms[i][j].transform.position = new Vector3((j - 2) * 1500, i * -1000, 0);
-                Rooms[i][j].transform.position = new Vector3(((j - 2) * 1500) * sizeModifier, (-500 + i * -1000) * sizeModifier, 0);
+                Rooms[i][j].transform.position = new Vector3(((j - 2) * 1500) * sizeModifier, (i * -1000) * sizeModifier, 0);
 
                 //Add all rooms to our monster's patrol route. TODO - Remove safe room.
+                /*
                 Vector3 patrolPoint = new Vector3(Rooms[i][j].transform.position.x, Rooms[i][j].transform.position.y, 0f);
-                if (patrolPoint != null && (Rooms[i][j] != Rooms[actRow][actCol])) //Make sure the room we're adding isn't the safe room (starting)
+                if (patrolPoint != null && (Rooms[i][j] != Rooms[0][4])) //Make sure the room we're adding isn't the safe room (starting)
                 {
-                    GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>().AddPatrolPoint(patrolPoint);
+                   GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>().AddPatrolPoint(patrolPoint);
+                }*/
+                GameObject patrolPoint = Rooms[i][j];
+                if (patrolPoint != null) //Make sure the room we're adding isn't the safe room (starting)
+                {
+                    if (i == actRow && j == actCol)
+                    {
+                        GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>().safeRoomX = j;
+                        GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>().safeRoomY = i;
+                        GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>().safeRoom = Rooms[i][j];
+                        GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>().AddPatrolPoint(patrolPoint);
+                        GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>().BlockRoom(Rooms[i][j]);
+                    }
+                    else
+                    {
+                        GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>().AddPatrolPoint(patrolPoint);
+                    }
+
                 }
             }
         }

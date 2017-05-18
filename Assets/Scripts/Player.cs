@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     public float runSpeed;
     private float speed;
 
-    private bool invisibility;
+    private bool invisibility = false;
     public float fadeTimer;
     public GameObject Distraction;
      
@@ -190,7 +190,8 @@ public class Player : MonoBehaviour {
                     motion = moveState.hiding;
 
                     collision.gameObject.GetComponent<HideHero>().Hero = this.gameObject;
-                    gameObject.SetActive(false);
+                    collision.gameObject.GetComponent<HideHero>().HideInObject();
+                    //gameObject.SetActive(false);
                 }
                 proximity = nextTo.hide;
             }
@@ -238,6 +239,11 @@ public class Player : MonoBehaviour {
                 fadeTimer = Time.time + 10;
             }
         }
+    }
+
+    public bool IsInvisible()
+    {
+        return invisibility;
     }
 
     private void useCookie()

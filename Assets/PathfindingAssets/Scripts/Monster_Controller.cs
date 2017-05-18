@@ -430,7 +430,7 @@ public class Monster_Controller : MonoBehaviour {
         //If we encounter the player, the game should reset. Nothing for now.
         if (other.tag == "Player")
         {
-            //Debug.Log("Player caught");
+            //Debug.Log("if (debugInfo) if (debugInfo) Debug.Log("Player caught");");
         }
 
 

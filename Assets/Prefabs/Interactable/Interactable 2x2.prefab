@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4658242862236698}
   - component: {fileID: 61170956129876962}
   - component: {fileID: 114952949848434260}
+  - component: {fileID: 114584558487436118}
   m_Layer: 0
   m_Name: Interactable 2x2
   m_TagString: SearchObject
@@ -85,6 +86,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &114584558487436118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344151330316620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9be77897966324a8d8107b1a122336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleRepObj: {fileID: 1839937615009684, guid: a99319ddb3aa5324a99f2114c89f1a08,
+    type: 2}
 --- !u!114 &114952949848434260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,10 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c1ae23cd7468947b85877d39b5cf20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childSprite: {fileID: 4594983947760908}
+  ItemCreate: {fileID: 0}
+  isOpen: 0
+  gold: 1
   contents: 0
-  color: {r: 0, g: 0, b: 0, a: 0}
-  original: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &212513423043534244
 SpriteRenderer:
   m_ObjectHideFlags: 1

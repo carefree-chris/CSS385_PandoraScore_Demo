@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4106674273522558}
   - component: {fileID: 61399226870203420}
   - component: {fileID: 114966675336020340}
+  - component: {fileID: 114967483552255542}
   m_Layer: 0
   m_Name: Green_Chest 1x1
   m_TagString: SearchObject
@@ -117,10 +118,20 @@ MonoBehaviour:
   ItemCreate: {fileID: 1965348282414094, guid: 01b8cc37319cd124bb31f68042bc399b, type: 2}
   isOpen: 0
   gold: 200
-  childSprite: {fileID: 4196056474574030}
   contents: 0
-  color: {r: 0, g: 0, b: 0, a: 0}
-  original: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114967483552255542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1497944935331682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9be77897966324a8d8107b1a122336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleRepObj: {fileID: 1839937615009684, guid: a99319ddb3aa5324a99f2114c89f1a08,
+    type: 2}
 --- !u!212 &212040892548811354
 SpriteRenderer:
   m_ObjectHideFlags: 1

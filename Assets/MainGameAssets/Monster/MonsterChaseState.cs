@@ -22,6 +22,11 @@ public class MonsterChaseState : IMonsterState {
             ToMonsterSearchState();
             return;
         }
+
+        if (monster.agent.speed != monster.chaseSpeed)
+        {
+            monster.agent.speed = monster.chaseSpeed;
+        }
     }
 
     /*
@@ -39,15 +44,16 @@ public class MonsterChaseState : IMonsterState {
         if (other.tag == "Player")
         {
             //TODO reset game.
-            Debug.Log("Player caught");
+            Debug.Log("if (debugInfo) if (debugInfo) Debug.Log("Player caught");");
         }
     }*/
 
     #region State Transitions
     public void ToMonsterPatrolState()
     {
-        monster.agent.destination = new Vector3(monster.patrolNodes[monster.currentNode].x, monster.proxyLocation.position.y, monster.patrolNodes[monster.currentNode].y);
+        monster.SetDestination();
         monster.currentState = monster.monsterPatrolState;
+        monster.agent.autoBraking = false;
     }
 
     public void ToMonsterChaseState()

@@ -13,6 +13,7 @@ TagManager:
   - HideObject
   - SearchObject
   - MainDoor
+  - StartNode
   layers:
   - Default
   - TransparentFX
@@ -50,9 +51,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: front
-    uniqueID: 642448063
-    locked: 0
   - name: background
     uniqueID: 646553815
+    locked: 0
+  - name: front
+    uniqueID: 642448063
     locked: 0

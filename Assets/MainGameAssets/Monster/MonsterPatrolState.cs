@@ -31,15 +31,24 @@ public class MonsterPatrolState : IMonsterState {
         
 
         //Once we're close enough to a patrol point, we go to the next
-        if ((monster.transform.position - monster.patrolNodes[monster.currentNode]).magnitude < monster.agent.stoppingDistance)
+        if ((monster.transform.position - monster.patrolNodes[monster.currentNode].GetComponent<Transform>().position).magnitude < monster.roomDimensionsX / 2f)
         {
             monster.currentNode++;
+            
+            //We don't want to patrol through the safe room.
+            if (monster.patrolNodes[monster.currentNode] == monster.safeRoom)
+                monster.currentNode++;
+
             if (monster.currentNode >= monster.patrolNodes.Count)
                 monster.currentNode = 0;
 
-            monster.agent.destination = new Vector3(monster.patrolNodes[monster.currentNode].x, monster.proxyLocation.position.y, monster.patrolNodes[monster.currentNode].y);
+           monster.SetDestination();
         }
 
+        if (monster.agent.speed != monster.patrolSpeed)
+        {
+            monster.agent.speed = monster.patrolSpeed;
+        }
         
     }
 
@@ -58,10 +67,11 @@ public class MonsterPatrolState : IMonsterState {
         if (other.tag == "Player")
         {
             //TODO reset game.
-            Debug.Log("Player caught");
+            if (debugInfo) Debug.Log("Player caught");
         }
     }*/
 
+        //TODO enable autobreaking when transitioning
     #region State Transitions
     public void ToMonsterPatrolState()
     {
@@ -72,6 +82,7 @@ public class MonsterPatrolState : IMonsterState {
     public void ToMonsterChaseState()
     {
         monster.currentState = monster.monsterChaseState;
+        monster.agent.autoBraking = true;
     }
 
     public void ToMonsterSearchState()
@@ -83,6 +94,7 @@ public class MonsterPatrolState : IMonsterState {
 
             monster.monsterSearchState.currentSubState = MonsterSearchState.SearchingSubState.CheckingLastPosition; //TODO verify this works
             monster.currentState = monster.monsterSearchState;
+            monster.agent.autoBraking = true;
         } else
         {
             Debug.Log("Player disabled, transitioning to patrol state.");
@@ -96,6 +108,7 @@ public class MonsterPatrolState : IMonsterState {
         monster.distractionTime = 0f;
         monster.currentState = monster.monsterDistractionState;
         monster.agent.destination = new Vector3(other.GetComponent<Transform>().position.x, monster.proxyLocation.position.y, other.GetComponent<Transform>().position.y);
+        monster.agent.autoBraking = true;
 
         //Once the distraction is finished, destroy it.
         GameObject.Destroy(other.gameObject, monster.maxDistractionTime);
