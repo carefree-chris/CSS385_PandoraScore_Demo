@@ -6,6 +6,7 @@ public class RoomManager : MonoBehaviour
 {
 
     public Texture2D[] RoomImages;
+    public Texture2D[] CornerRoomImages;
     public Texture2D startingRoom;
 
     public float sizeModifier;
@@ -47,23 +48,23 @@ public class RoomManager : MonoBehaviour
                 }
                 else if (i == 0 && j == 0) //top left corner
                 {
-                    int num = Random.Range(0, RoomImages.Length);
-                    Rooms[i][j].GetComponent<RoomScript>().init(5, RoomImages[num]);
+                    int num = Random.Range(0, CornerRoomImages.Length);
+                    Rooms[i][j].GetComponent<RoomScript>().init(5, CornerRoomImages[num]);
                 }
                 else if (i == 0 && j == collumns - 1) //top right corner
                 {
-                    int num = Random.Range(0, RoomImages.Length);
-                    Rooms[i][j].GetComponent<RoomScript>().init(6, RoomImages[num]);
+                    int num = Random.Range(0, CornerRoomImages.Length);
+                    Rooms[i][j].GetComponent<RoomScript>().init(6, CornerRoomImages[num]);
                 }
                 else if (i == rows - 1 && j == 0) //bottom left corner
                 {
-                    int num = Random.Range(0, RoomImages.Length);
-                    Rooms[i][j].GetComponent<RoomScript>().init(7, RoomImages[num]);
+                    int num = Random.Range(0, CornerRoomImages.Length);
+                    Rooms[i][j].GetComponent<RoomScript>().init(7, CornerRoomImages[num]);
                 }
                 else if (i == rows - 1 && j == collumns - 1) //bottom right corner
                 {
-                    int num = Random.Range(0, RoomImages.Length);
-                    Rooms[i][j].GetComponent<RoomScript>().init(8, RoomImages[num]);
+                    int num = Random.Range(0, CornerRoomImages.Length);
+                    Rooms[i][j].GetComponent<RoomScript>().init(8, CornerRoomImages[num]);
                 }
                 else if (i == 0) //top row
                 {

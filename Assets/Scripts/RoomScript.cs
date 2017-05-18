@@ -24,13 +24,15 @@ public class RoomScript : MonoBehaviour
 {
 
     public RoomPrefabs[] RoomPrefabs;
+    public GameObject[] DecorItems;
 
     public GameObject Door;
     public GameObject EndDoor;
-
+   
     private GameObject[] Colliders;
     private GameObject[] Doors;
     private Tiles[][] Tiles;
+    private GameObject[] Decor;
     
 
     List<GameObject> Interactables = new List<GameObject>();
@@ -71,7 +73,7 @@ public class RoomScript : MonoBehaviour
         {
             Tiles[i] = new Tiles[12];
 
-            for(int j = 0; j < Tiles[i].Length; j++)
+            for (int j = 0; j < Tiles[i].Length; j++)
             {
                 Tiles[i][j].IsOccupied = false;
             }
@@ -122,7 +124,7 @@ public class RoomScript : MonoBehaviour
             Colliders[0].transform.localScale = new Vector3(8, 1.5f, 1);
             Colliders[0].transform.localPosition = new Vector3(-2.5f, 4.25f, 0);
         }
-        if(num != 5 && num != 7 && num != 4)
+        if (num != 5 && num != 7 && num != 4)
         {
             GameObject LeftDoor = Instantiate(Door);
             LeftDoor.transform.parent = Doors[0].transform;
@@ -134,7 +136,7 @@ public class RoomScript : MonoBehaviour
             Colliders[6].transform.localScale = new Vector3(1.5f, 5f, 1);
             Colliders[6].transform.localPosition = new Vector3(-6.75f, -1f, 0);
         }
-        if(num != 6 && num != 8 && num != 2)
+        if (num != 6 && num != 8 && num != 2)
         {
             GameObject RightDoor = Instantiate(Door);
             RightDoor.transform.parent = Doors[2].transform;
@@ -157,6 +159,38 @@ public class RoomScript : MonoBehaviour
         {
             Colliders[5].transform.localScale = new Vector3(8, 1.5f, 1);
             Colliders[5].transform.localPosition = new Vector3(-2.5f, -4.25f, 0);
+        }
+
+
+        Decor = new GameObject[12];
+
+        c = transform.FindChild("Decor").gameObject;
+
+        Decor[0] = c.transform.FindChild("Top Left 1").gameObject;
+        Decor[1] = c.transform.FindChild("Top Left 2").gameObject;
+        Decor[2] = c.transform.FindChild("Top Right 1").gameObject;
+        Decor[3] = c.transform.FindChild("Top Right 2").gameObject;
+        Decor[4] = c.transform.FindChild("Bottom Left 1").gameObject;
+        Decor[5] = c.transform.FindChild("Bottom Left 2").gameObject;
+        Decor[6] = c.transform.FindChild("Bottom Right 1").gameObject;
+        Decor[7] = c.transform.FindChild("Bottom Right 2").gameObject;
+        Decor[8] = c.transform.FindChild("Right Top").gameObject;
+        Decor[9] = c.transform.FindChild("Right Bottom").gameObject;
+        Decor[10] = c.transform.FindChild("Left Top").gameObject;
+        Decor[11] = c.transform.FindChild("Left Bottom").gameObject;
+
+
+        for (int i = 0; i < Decor.Length; i++)
+        {
+            if(Random.Range(0,100) > 50 && DecorItems.Length != 0)
+            {
+                int r = Random.Range(0, DecorItems.Length);
+
+                GameObject item = Instantiate(DecorItems[r]);
+                item.transform.parent = Decor[i].transform;
+                item.transform.localPosition = new Vector3(0, 0, 0);
+                item.transform.localRotation = new Quaternion(0, 0, 0, 0);
+            }
         }
 
         Color32[] pixels = room.GetPixels32();
@@ -183,12 +217,14 @@ public class RoomScript : MonoBehaviour
                     if (Tiles[i][j + 1].IsOccupied == false && c[(i * 12) + (j + 1)].Equals(r.color))
                     {
                         num = 1;
+
                         if (i < 6)
                         {
                             if(Tiles[i + 1][j].IsOccupied == false && c[((i + 1) * 12) + (j)].Equals(r.color))
                             {
                                 num = 3;
-                                if(Tiles[i + 1][j + 1].IsOccupied == false && c[((i + 1) * 12) + (j + 1)].Equals(r.color))
+
+                                if (Tiles[i + 1][j + 1].IsOccupied == false && c[((i + 1) * 12) + (j + 1)].Equals(r.color))
                                 {
                                     num = 4;
                                 }
@@ -203,6 +239,7 @@ public class RoomScript : MonoBehaviour
                         num = 2;
                     }
                 }
+
                 placeObject(r, i, j, num);
             }
         }
@@ -252,15 +289,34 @@ public class RoomScript : MonoBehaviour
         else
         {
             int n = 0;
+
             if (num == 3)
-                n = Random.Range(0, 3);
+            {
+                n = Random.Range(0, 100);
+                if (n > 55)
+                    n = 2;
+                else if (n > 10)
+                    n = 1;
+                else
+                    n = 0;
+
+            }
             else if (num == 2)
             {
-                n = Random.Range(0, 2);
-                n *= 2;
+                n = Random.Range(0, 100);
+                if (n > 10)
+                    n = 2;
+                else
+                    n = 0;
             }
-            else
-                n = Random.Range(0, num + 1);
+            else if (num == 1)
+            {
+                n = Random.Range(0, 100);
+                if (n > 20)
+                    n = 1;
+                else
+                    n = 0;
+            }
 
             if (n == 0)
             {
