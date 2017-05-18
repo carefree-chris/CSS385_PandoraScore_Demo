@@ -15,13 +15,14 @@ public class MainDoor : MonoBehaviour {
 
     private void Update()
     {
-        currentKeys = GameObject.Find("Player").GetComponent<Player>().keysHeld;
+        //currentKeys = GameObject.Find("Player").GetComponent<Player>().keysHeld;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            currentKeys = collision.gameObject.GetComponent<Player>().keysHeld;
             if (Input.GetButtonDown("Jump"))
             {
                 if (currentKeys >= keysRequired)
