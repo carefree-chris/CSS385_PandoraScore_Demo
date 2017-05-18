@@ -372,19 +372,18 @@ public class RoomScript : MonoBehaviour
 
     public void placeEndDoor()
     {
-        GameObject g = Instantiate(RoomPrefabs[3].twobyone[Random.Range(0, RoomPrefabs[3].twobyone.Length)]);
+        GameObject g = Instantiate(RoomPrefabs[3].onebyone[Random.Range(0, RoomPrefabs[3].onebyone.Length)]);
         g.transform.parent = Tiles[6][2].Tile.transform;
         Tiles[6][2].IsOccupied = true;
-        Tiles[6][3].IsOccupied = true;
 
-        g.transform.localPosition = new Vector3(0, .5f, 0);
+        g.transform.localPosition = new Vector3(.5f, 0, 0);
         g.transform.rotation = new Quaternion(0, 0, 0, 0);
 
         GameObject f = Instantiate(RoomPrefabs[0].onebyone[Random.Range(0, RoomPrefabs[0].onebyone.Length)]);
         f.transform.parent = Tiles[6][9].Tile.transform;
         Tiles[6][9].IsOccupied = true;
 
-        f.transform.localPosition = new Vector3(0, .5f, 0);
+        f.transform.localPosition = new Vector3(0, 0, 0);
         f.transform.rotation = new Quaternion(0, 0, 0, 0);
 
 
