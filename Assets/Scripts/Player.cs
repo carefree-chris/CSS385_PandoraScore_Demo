@@ -7,9 +7,12 @@ public class Player : MonoBehaviour {
     public int cookiesHeld;
     public int potionsHeld;
     public int goldHeld;
+
+    //For Determining Object bases
+    private int objectScalar = 1;
     
     private Animator animator;
-    private BoxCollider2D coll;
+    //private BoxCollider2D coll;
 
     public float walkSpeed;
     public float sneakSpeed;
@@ -27,7 +30,7 @@ public class Player : MonoBehaviour {
     }
     private moveState motion;
 
-    private GameObject mainCamera;
+    //private GameObject mainCamera;
 
     //Collision with Object Interaction
     private enum nextTo
@@ -44,8 +47,8 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start () {
         animator = GetComponentInChildren<Animator>();
-        coll = GetComponent<BoxCollider2D>();
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        //coll = GetComponent<BoxCollider2D>();
+        //mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         proximity = nextTo.open;
         motion = moveState.idle;
@@ -154,19 +157,31 @@ public class Player : MonoBehaviour {
         //Debug.Log(collision.gameObject.transform.position);
         //Debug.Log(animator.GetInteger("Direction"));
 
+
+        //Scalar for Object Size
+        if ((collision.transform.position.x * 10) % 10 != 0 && (collision.transform.position.y * 10) % 10 == 0)
+        {
+            objectScalar = 1;
+        }
+        else
+        {
+            objectScalar = 2;
+        }
+        Debug.Log("Object Scalar Size " + objectScalar);
+
         //Directional Facing Cases
         if ((animator.GetInteger("Direction") == 1 //Facing Left
             && collision.gameObject.transform.position.x < this.gameObject.transform.position.x
-            && Mathf.Abs(collision.gameObject.transform.position.y - this.gameObject.transform.position.y) < 1.0f)
+            && Mathf.Abs(collision.gameObject.transform.position.y - this.gameObject.transform.position.y) < 2.25f * objectScalar)
             || (animator.GetInteger("Direction") == 3 //Facing Right
             && collision.gameObject.transform.position.x > this.gameObject.transform.position.x
-            && Mathf.Abs(collision.gameObject.transform.position.y - this.gameObject.transform.position.y) < 1.0f)
+            && Mathf.Abs(collision.gameObject.transform.position.y - this.gameObject.transform.position.y) < 2.25f * objectScalar)
             || (animator.GetInteger("Direction") == 0 //Facing Down
             && collision.gameObject.transform.position.y < this.gameObject.transform.position.y
-            && Mathf.Abs(collision.gameObject.transform.position.x - this.gameObject.transform.position.x) < 1.0f)
+            && Mathf.Abs(collision.gameObject.transform.position.x - this.gameObject.transform.position.x) < 2.25f * objectScalar)
             || (animator.GetInteger("Direction") == 2 //Facing Up
             && collision.gameObject.transform.position.y > this.gameObject.transform.position.y
-            && Mathf.Abs(collision.gameObject.transform.position.x - this.gameObject.transform.position.x) < 1.0f))
+            && Mathf.Abs(collision.gameObject.transform.position.x - this.gameObject.transform.position.x) < 2.25f * objectScalar))
         {
             if (collision.gameObject.tag == "HideObject")
             {
@@ -219,6 +234,7 @@ public class Player : MonoBehaviour {
         }
     }
 
+    //Search Items
     private void searchItem(Collision2D searching)
     {
         if (proximity == nextTo.search)
