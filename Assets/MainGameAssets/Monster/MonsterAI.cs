@@ -196,26 +196,31 @@ public class MonsterAI : MonoBehaviour {
     private void UpdateSprite()
     {
 
-        
 
+        Debug.Log(proxy.transform.rotation.eulerAngles.y);
 
         //Debug.Log(agent.velocity.normalized);
-        if (agent.velocity.normalized.z > 0 && Mathf.Abs(agent.velocity.x) < 1f)
+        if (proxy.transform.rotation.eulerAngles.y < 40)
         {
             anim.SetInteger("Direction", 0);
-        } else if (agent.velocity.normalized.z < 0 && Mathf.Abs(agent.velocity.x) < 1)
-        {
-            anim.SetInteger("Direction", 2);
-        } else
-        {
-
-        } if (agent.velocity.normalized.x < 0)
-        {
-            anim.SetInteger("Direction", 3);
-        } else if (agent.velocity.normalized.x > 0)
+        }
+        else if (proxy.transform.rotation.eulerAngles.y < 140)
         {
             anim.SetInteger("Direction", 1);
         }
+        else if (proxy.transform.rotation.eulerAngles.y < 220)
+        {
+            anim.SetInteger("Direction", 2);
+        }
+        else if (proxy.transform.rotation.eulerAngles.y < 320)
+        {
+            anim.SetInteger("Direction", 3);
+        }
+        else
+        {
+            anim.SetInteger("Direction", 0);
+        }
+
 
 
     }
