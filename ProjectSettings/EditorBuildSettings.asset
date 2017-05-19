@@ -6,16 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+  - enabled: 1
     path: Assets/Scenes/Main.unity
   - enabled: 1
     path: Assets/Scenes/Over.unity
   - enabled: 1
-    path: Assets/Scenes/Prototype_Level.unity
-  - enabled: 1
-    path: Assets/Scenes/SoundPrototype.unity
-  - enabled: 1
-    path: Assets/Scenes/TitleScreen.unity
-  - enabled: 1
-    path: Assets/Scenes/UI.unity
-  - enabled: 1
     path: Assets/Scenes/Win.unity
+  - enabled: 0
+    path: Assets/Scenes/Prototype_Level.unity
+  - enabled: 0
+    path: Assets/Scenes/SoundPrototype.unity
+  - enabled: 0
+    path: Assets/Scenes/UI.unity
