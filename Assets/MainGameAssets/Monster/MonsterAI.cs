@@ -296,6 +296,8 @@ public class MonsterAI : MonoBehaviour {
         GameObject obstacleRep = Instantiate(obstacleRepObj);
         obstacleRep.GetComponent<Transform>().position = representationLocation;
         obstacleRep.GetComponent<Transform>().localScale = representationScale;
+
+        //performance increase?
         obstacleRep.GetComponent<MeshRenderer>().enabled = false;
 
         obstacleRep.name = "Safe Room Obstacle";

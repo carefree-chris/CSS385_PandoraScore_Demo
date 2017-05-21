@@ -251,6 +251,7 @@ public class RoomScript : MonoBehaviour
 
     public void DisableRoom()
     {
+        //performance increase?
         for(int i = 0; i < sprites.Length; i++)
         {
             sprites[i].color = new Color(sprites[i].color.r, sprites[i].color.g, sprites[i].color.b, 0);
