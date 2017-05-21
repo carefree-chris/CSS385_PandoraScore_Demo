@@ -145,7 +145,7 @@ public class RoomManager : MonoBehaviour
                 }
                 else
                 {
-                    //Rooms[i][j].SetActive(false);
+                    Rooms[i][j].GetComponent<RoomScript>().DisableRoom();
                 }
             }
         }
@@ -159,12 +159,12 @@ public class RoomManager : MonoBehaviour
 
     public void DisableRoom(int i, int j)
     {
-        //Rooms[i][j].SetActive(false);
+        Rooms[i][j].GetComponent<RoomScript>().DisableRoom();
     }
 
     public void EnableRoom(int i, int j)
     {
-        //Rooms[i][j].SetActive(true);
+        Rooms[i][j].GetComponent<RoomScript>().EnableRoom();
         actCol = j;
         actRow = i;
     }

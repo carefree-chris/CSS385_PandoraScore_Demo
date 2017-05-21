@@ -150,10 +150,10 @@ public class Player : MonoBehaviour {
             animator.speed = 1.4f;
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            keysHeld++;
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    keysHeld++;
+        //}
 
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y % 50 * .02f);
 

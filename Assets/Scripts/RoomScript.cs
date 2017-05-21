@@ -33,6 +33,8 @@ public class RoomScript : MonoBehaviour
     private GameObject[] Doors;
     private Tiles[][] Tiles;
     private GameObject[] Decor;
+
+    private SpriteRenderer[] sprites;
     
 
     List<GameObject> Interactables = new List<GameObject>();
@@ -202,6 +204,9 @@ public class RoomScript : MonoBehaviour
                     spawnTiles(pixels, i, j);
             }
         }
+
+        sprites = GetComponentsInChildren<SpriteRenderer>();
+
     }
 
     private void spawnTiles(Color32[] c, int i, int j)
@@ -244,9 +249,20 @@ public class RoomScript : MonoBehaviour
         }
     }
 
-    public void DisableRoom(int i, int j)
+    public void DisableRoom()
     {
-        //todo, disable all visuals for room, keep collisions enabled for pathing?
+        for(int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = new Color(sprites[i].color.r, sprites[i].color.g, sprites[i].color.b, 0);
+        }
+    }
+
+    public void EnableRoom()
+    {
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = new Color(sprites[i].color.r, sprites[i].color.g, sprites[i].color.b, 1);
+        }
     }
 
     void placeObject(RoomPrefabs room, int i, int j, int num)
@@ -364,8 +380,6 @@ public class RoomScript : MonoBehaviour
             }
 
         }
-
-        
     }
 
     void placeHazards()

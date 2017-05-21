@@ -196,9 +196,6 @@ public class MonsterAI : MonoBehaviour {
     private void UpdateSprite()
     {
 
-
-        Debug.Log(proxy.transform.rotation.eulerAngles.y);
-
         //Debug.Log(agent.velocity.normalized);
         if (proxy.transform.rotation.eulerAngles.y < 40)
         {
@@ -299,6 +296,7 @@ public class MonsterAI : MonoBehaviour {
         GameObject obstacleRep = Instantiate(obstacleRepObj);
         obstacleRep.GetComponent<Transform>().position = representationLocation;
         obstacleRep.GetComponent<Transform>().localScale = representationScale;
+        obstacleRep.GetComponent<MeshRenderer>().enabled = false;
 
         obstacleRep.name = "Safe Room Obstacle";
         //Debug.Log("Intention" + representationLocation + "\nActual: " + obstacleRep.transform.position);
