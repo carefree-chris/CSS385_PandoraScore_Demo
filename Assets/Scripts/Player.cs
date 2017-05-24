@@ -81,9 +81,9 @@ public class Player : MonoBehaviour {
     #region Movement and Action States
     private void moveHero()
     {
-        #region Local Input Variables for Movement
-        float vertical = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
+        #region Local Input Variables for Movement (updated 05/24/17)
+        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
         #endregion
 
         #region Action State Machine
@@ -122,7 +122,7 @@ public class Player : MonoBehaviour {
         }
         #endregion
 
-        #region Handling For Movement and Sprite Direction
+        #region Handling For Movement and Sprite Direction     
         if (vertical > 0)
         {
             //if (!coll.IsTouchingLayers(LayerMask.GetMask("Environment")))
@@ -163,6 +163,7 @@ public class Player : MonoBehaviour {
         {
             animator.SetBool("IsMoving", false);
         }
+        
         #endregion
 
         #region Animator Speed
@@ -180,7 +181,7 @@ public class Player : MonoBehaviour {
         }
         #endregion
 
-        #region Actual Movement
+        #region Z Rotation
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y % 50 * .02f);
         #endregion
     }

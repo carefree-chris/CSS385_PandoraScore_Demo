@@ -18,10 +18,11 @@ public class MainDoor : MonoBehaviour {
         //currentKeys = GameObject.Find("Player").GetComponent<Player>().keysHeld;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("The Player is at the door");
             currentKeys = collision.gameObject.GetComponent<Player>().keysHeld;
             if (Input.GetButtonDown("Jump"))
             {
