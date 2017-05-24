@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-#region Hero Controller Cyylass
+#region Hero Controller Class
 public class Player : MonoBehaviour {
 
     #region inventory Variables
@@ -220,30 +220,38 @@ public class Player : MonoBehaviour {
             && collision.gameObject.transform.position.y > this.gameObject.transform.position.y
             && Mathf.Abs(collision.gameObject.transform.position.x - this.gameObject.transform.position.x) < 2.25f * objectScalar))
         {
-        
-        
-        if (collision.gameObject.tag == "HideObject")
-        {
-            if (Input.GetButton("Jump"))
-            {
-                motion = moveState.hiding;
 
-                collision.gameObject.GetComponent<HideHero>().Hero = this.gameObject;
-                collision.gameObject.GetComponent<HideHero>().HideInObject();
-                //gameObject.SetActive(false);
-            }
-            proximity = nextTo.hide;
-        }
-        
-        if (collision.gameObject.tag == "SearchObject")
+
+            if (collision.gameObject.tag == "HideObject")
             {
-                
                 if (Input.GetButton("Jump"))
                 {
-                    
+                    motion = moveState.hiding;
+
+                    collision.gameObject.GetComponent<HideHero>().Hero = this.gameObject;
+                    collision.gameObject.GetComponent<HideHero>().HideInObject();
+                    //gameObject.SetActive(false);
+                }
+                proximity = nextTo.hide;
+            }
+
+            if (collision.gameObject.tag == "SearchObject")
+            {
+                if (Input.GetButton("Jump"))
+                {
                     searchItem(collision);
                     proximity = nextTo.search;
                 }
+            }
+
+            if (collision.gameObject.tag == "Door")
+            {
+                Debug.Log("Door is open" + collision.gameObject.GetComponent<DoorScript>().isOpen);
+                if (Input.GetButton("Jump"))
+                {
+                    collision.gameObject.GetComponent<DoorScript>().updateDoor();
+                }
+                
             }
         }
         
