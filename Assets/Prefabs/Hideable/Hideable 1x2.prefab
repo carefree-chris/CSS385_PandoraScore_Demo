@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 61277673920488178}
   - component: {fileID: 114173631594147404}
   - component: {fileID: 114145453231511438}
+  - component: {fileID: 61400954321567258}
   m_Layer: 0
   m_Name: Hideable 1x2
   m_TagString: HideObject
@@ -65,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1601276537554896}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalPosition: {x: -139.92569, y: 10.119462, z: 0}
   m_LocalScale: {x: 5, y: 10, z: 1}
   m_Children:
   - {fileID: 4070019989348202}
@@ -86,6 +87,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!61 &61400954321567258
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1601276537554896}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.5}
 --- !u!114 &114145453231511438
 MonoBehaviour:
   m_ObjectHideFlags: 1

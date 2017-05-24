@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 61313093415905906}
   - component: {fileID: 114518037866419636}
   - component: {fileID: 114638238885891632}
+  - component: {fileID: 61535417806870070}
   m_Layer: 0
   m_Name: Blue_Chest 1x1
   m_TagString: SearchObject
@@ -66,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1686893912249500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -130.2, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 4520692274136514}
@@ -87,6 +88,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!61 &61535417806870070
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686893912249500}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.98, y: 1.93}
 --- !u!95 &95842921546689496
 Animator:
   serializedVersion: 3

@@ -9,7 +9,7 @@ public class SearchObject : MonoBehaviour
     public GameObject ItemCreate;
     public bool isOpen = false;
     public int gold = 1;
-
+    public bool canBeSearched;
 
     public enum itemCode
     {
@@ -33,7 +33,7 @@ public class SearchObject : MonoBehaviour
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
-
+        
         //color = childSprite.GetComponent<SpriteRenderer>().color;
         //original = childSprite.GetComponent<SpriteRenderer>().color;
         //childSprite = transform.GetChild(0);
