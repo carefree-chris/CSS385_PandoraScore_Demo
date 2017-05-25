@@ -1,0 +1,88 @@
+Initialize engine version: 5.5.2f1 (3829d7f588f3)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 750M (ID=0xfe4)
+    Vendor:   NVIDIA
+    VRAM:     1966 MB
+    Driver:   21.21.13.7892
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.037 seconds
+Platform assembly: C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\CSS385\Game_Proto\EXE\pandora_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on Fading
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename:  Line: 382)
+
+desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.099449 ms
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.318066 ms
+
+Unloading 94 unused Assets to reduce memory usage. Loaded Objects now: 1738.
+Total: 0.839447 ms (FindLiveObjects: 0.080822 ms CreateObjectMapping: 0.060724 ms MarkObjects: 0.474674 ms  DeleteObjects: 0.222370 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Error: Got stuck
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Error: Got stuck
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The Door Opens..
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The Door Opens..
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 47.689404 ms
+
+Unloading 1215 unused Assets to reduce memory usage. Loaded Objects now: 323.
+Total: 4.111280 ms (FindLiveObjects: 0.032927 ms CreateObjectMapping: 0.057730 ms MarkObjects: 0.199705 ms  DeleteObjects: 3.820489 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.320298 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 479.
+Total: 0.544379 ms (FindLiveObjects: 0.024375 ms CreateObjectMapping: 0.016677 ms MarkObjects: 0.236054 ms  DeleteObjects: 0.266844 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.669676 ms
+
+Unloading 92 unused Assets to reduce memory usage. Loaded Objects now: 1738.
+Total: 0.859118 ms (FindLiveObjects: 0.103915 ms CreateObjectMapping: 0.062007 ms MarkObjects: 0.525135 ms  DeleteObjects: 0.167205 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at RoomManager.getRoomTransform (Int32 i, Int32 j) [0x00000] in <filename unknown>:0 
+  at CameraScript.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 21b0 -> priority: 1 
+  Thread -> id: 307c -> priority: 1 

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50940085151671564}
   - component: {fileID: 61489565404473808}
   - component: {fileID: 58295861613874384}
+  - component: {fileID: 81861473334277760}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -91,7 +92,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &58295861613874384
@@ -122,6 +123,13 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.751, y: 0.8}
+--- !u!81 &81861473334277760
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1672422694887522}
+  m_Enabled: 1
 --- !u!95 &95831622900149436
 Animator:
   serializedVersion: 3
@@ -154,13 +162,13 @@ MonoBehaviour:
   cookiesHeld: 0
   potionsHeld: 0
   goldHeld: 0
-  walkSpeed: 20
-  sneakSpeed: 10
-  runSpeed: 50
   fadeTimer: 0
   Distraction: {fileID: 1911415099502084, guid: edeb4b7be40352d44b5fa49bcd3abdb5,
     type: 2}
   childSprite: {fileID: 1828777267931092}
+  walkSpeed: 18
+  sneakSpeed: 10
+  runSpeed: 26
 --- !u!212 &212475685847062396
 SpriteRenderer:
   m_ObjectHideFlags: 1

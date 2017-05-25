@@ -29,7 +29,10 @@ public class SolidObject : MonoBehaviour {
 
         GameObject obstacleRep = Instantiate(obstacleRepObj);
         obstacleRep.GetComponent<Transform>().position = representationLocation;
-        obstacleRep.GetComponent<Transform>().localScale = representationScale; 
+        obstacleRep.GetComponent<Transform>().localScale = representationScale;
+
+        //performance increase?
+        obstacleRep.GetComponent<MeshRenderer>().enabled = false;
 
     }
 }

@@ -2,27 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#region Hero Controller Class
 public class Player : MonoBehaviour {
+
+    #region inventory Variables
     public int keysHeld;
     public int cookiesHeld;
     public int potionsHeld;
     public int goldHeld;
+    #endregion
 
+    #region Inventory Functionality Variables
+    private bool invisibility = false;
+    public float fadeTimer;
+    public GameObject Distraction;
+    public SpriteRenderer childSprite;
+    #endregion
+
+    #region Object Interaction Variables
     //For Determining Object bases
     private int objectScalar = 1;
-    
+    //Collision with Object Interaction
+    private enum nextTo
+    {
+        hide,
+        search,
+        open
+    }
+    private nextTo proximity;
+    #endregion
+
+    #region Movement/Action States
     private Animator animator;
     //private BoxCollider2D coll;
-
     public float walkSpeed;
     public float sneakSpeed;
     public float runSpeed;
     private float speed;
-
-    private bool invisibility = false;
-    public float fadeTimer;
-    public GameObject Distraction;
-     
     public enum moveState
     {
         sneak,
@@ -33,21 +49,10 @@ public class Player : MonoBehaviour {
         searching
     }
     private moveState motion;
-
     //private GameObject mainCamera;
+    #endregion
 
-    //Collision with Object Interaction
-    private enum nextTo
-    {
-        hide,
-        search,
-        open
-    }
-    private nextTo proximity;
-
-    public SpriteRenderer childSprite;
-
-    // Use this for initialization
+    #region Initialization
     void Start () {
         animator = GetComponentInChildren<Animator>();
         //coll = GetComponent<BoxCollider2D>();
@@ -56,12 +61,32 @@ public class Player : MonoBehaviour {
         motion = moveState.idle;
         childSprite = GetComponentInChildren<SpriteRenderer>();
     }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-        float vertical = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
+    #endregion
 
+    #region Update
+    void FixedUpdate ()
+    {
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            keysHeld++;
+        }
+
+        moveHero();
+        useCookie();
+        goInvisible();
+    }
+    #endregion
+
+    #region Movement and Action States
+    private void moveHero()
+    {
+        #region Local Input Variables for Movement (updated 05/24/17)
+        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        #endregion
+
+        #region Action State Machine
         if (Input.GetButton("Fire1") && !Input.GetButton("Fire2")) //Sneak
         {
             motion = moveState.sneak;
@@ -95,48 +120,46 @@ public class Player : MonoBehaviour {
         {
             motion = moveState.idle;
         }
+        #endregion
 
-        if (vertical > 0)
+        #region Handling For Movement and Sprite Direction  
+        if (Mathf.Abs(vertical) > 0 || Mathf.Abs(horizontal) > 0)
         {
-            //if (!coll.IsTouchingLayers(LayerMask.GetMask("Environment")))
-            //{
+            animator.SetBool("IsMoving", true);
+
+            if (vertical > 0)
+            {
                 transform.position = new Vector3(transform.position.x, transform.position.y + speed * vertical * Time.deltaTime, transform.position.z);
-            //}
-            animator.SetInteger("Direction", 2);
-            animator.SetBool("IsMoving", true);
-        }
-        if (vertical < 0)
-        {
-            //if (!coll.IsTouchingLayers(LayerMask.GetMask("Environment")))
-            //{
+
+                animator.SetInteger("Direction", 2);
+            }
+            if (vertical < 0)
+            {
                 transform.position = new Vector3(transform.position.x, transform.position.y + speed * vertical * Time.deltaTime, transform.position.z);
-            //}
-            animator.SetInteger("Direction", 0);
-            animator.SetBool("IsMoving", true);
-        }
-        if (horizontal < 0)
-        {
-            //if (!coll.IsTouchingLayers(LayerMask.GetMask("Environment")))
-            //{
+
+                animator.SetInteger("Direction", 0);
+            }
+            if (horizontal < 0)
+            {
                 transform.position = new Vector3(transform.position.x + speed * horizontal * Time.deltaTime, transform.position.y, transform.position.z);
-            //}
-            animator.SetInteger("Direction", 1);
-            animator.SetBool("IsMoving", true);
-        }
-        if (horizontal > 0)
-        {
-            //if (!coll.IsTouchingLayers(LayerMask.GetMask("Environment")))
-            //{
+                
+                animator.SetInteger("Direction", 1);
+            }
+            if (horizontal > 0)
+            {
                 transform.position = new Vector3(transform.position.x + speed * horizontal * Time.deltaTime, transform.position.y, transform.position.z);
-            //}
-            animator.SetInteger("Direction", 3);
-            animator.SetBool("IsMoving", true);
+
+                animator.SetInteger("Direction", 3);
+            }
         }
-        if(horizontal + vertical == 0)
+        else
         {
             animator.SetBool("IsMoving", false);
         }
+        
+        #endregion
 
+        #region Animator Speed
         if (motion == moveState.sneak)
         {
             animator.speed = .4f;
@@ -149,23 +172,88 @@ public class Player : MonoBehaviour {
         {
             animator.speed = 1.4f;
         }
+        #endregion
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            keysHeld++;
-        }
-
+        #region Z Rotation
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y % 50 * .02f);
-
-        useCookie();
-        goInvisible();
+        #endregion
     }
+    #endregion
 
+    #region Proximity State Update
     private void OnCollisionExit2D(Collision2D collision)
     {
         proximity = nextTo.open;
     }
+    #endregion
 
+    #region Object Interaction using Trigger Colliders (Updated 05/24/17)
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+        if ((collision.transform.position.x * 10) % 10 != 0 && (collision.transform.position.y * 10) % 10 == 0)
+        {
+            objectScalar = 1;
+        }
+        else
+        {
+            objectScalar = 2;
+        }
+
+        //Directional Facing Cases
+        if ((animator.GetInteger("Direction") == 1 //Facing Left
+            && collision.gameObject.transform.position.x < this.gameObject.transform.position.x
+            && Mathf.Abs(collision.gameObject.transform.position.y - this.gameObject.transform.position.y) < 2.25f * objectScalar)
+            || (animator.GetInteger("Direction") == 3 //Facing Right
+            && collision.gameObject.transform.position.x > this.gameObject.transform.position.x
+            && Mathf.Abs(collision.gameObject.transform.position.y - this.gameObject.transform.position.y) < 2.25f * objectScalar)
+            || (animator.GetInteger("Direction") == 0 //Facing Down
+            && collision.gameObject.transform.position.y < this.gameObject.transform.position.y
+            && Mathf.Abs(collision.gameObject.transform.position.x - this.gameObject.transform.position.x) < 2.25f * objectScalar)
+            || (animator.GetInteger("Direction") == 2 //Facing Up
+            && collision.gameObject.transform.position.y > this.gameObject.transform.position.y
+            && Mathf.Abs(collision.gameObject.transform.position.x - this.gameObject.transform.position.x) < 2.25f * objectScalar))
+        {
+
+
+            if (collision.gameObject.tag == "HideObject")
+            {
+                if (Input.GetButton("Jump"))
+                {
+                    motion = moveState.hiding;
+
+                    collision.gameObject.GetComponent<HideHero>().Hero = this.gameObject;
+                    collision.gameObject.GetComponent<HideHero>().HideInObject();
+                    //gameObject.SetActive(false);
+                }
+                proximity = nextTo.hide;
+            }
+
+            if (collision.gameObject.tag == "SearchObject")
+            {
+                if (Input.GetButton("Jump"))
+                {
+                    searchItem(collision);
+                    proximity = nextTo.search;
+                }
+            }
+
+            if (collision.gameObject.tag == "Door")
+            {
+
+                if (Input.GetButton("Jump"))
+                {
+                    collision.gameObject.GetComponent<DoorScript>().updateDoor();
+                }
+                
+            }
+        }
+        
+    }
+    #endregion
+
+    #region Interaction through Collision (disabled 05/24/17)
+    /*
     //Changes State Based on if touching Special Objects
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -196,6 +284,7 @@ public class Player : MonoBehaviour {
             && collision.gameObject.transform.position.y > this.gameObject.transform.position.y
             && Mathf.Abs(collision.gameObject.transform.position.x - this.gameObject.transform.position.x) < 2.25f * objectScalar))
         {
+           
             if (collision.gameObject.tag == "HideObject")
             {
                 if (Input.GetButton("Jump"))
@@ -208,6 +297,8 @@ public class Player : MonoBehaviour {
                 }
                 proximity = nextTo.hide;
             }
+           
+           
             if (collision.gameObject.tag == "SearchObject")
             {
                 if (Input.GetButton("Jump"))
@@ -216,8 +307,9 @@ public class Player : MonoBehaviour {
                     proximity = nextTo.search;
                 }
             }
+           
 
-        }
+        //}
         //if (collision.gameObject.tag == "KeyObject")
         //{
         //    bool hasKeyInside = collision.gameObject.GetComponent<KeyObject>().containsKey;
@@ -230,9 +322,11 @@ public class Player : MonoBehaviour {
         //        Debug.Log("Amount of Keys" + keysHeld);
         //    }
         //}
-    }
-    
+  //  }
+    */
+    #endregion
 
+    #region Invisibility Functionality
     private void goInvisible()
     {
         float currentTime = Time.time;
@@ -253,12 +347,16 @@ public class Player : MonoBehaviour {
             }
         }
     }
+    #endregion
 
+    #region Invisibility Boolean Flag
     public bool IsInvisible()
     {
         return invisibility;
     }
+    #endregion
 
+    #region Cookie Functionality
     private void useCookie()
     {
         if (Input.GetButtonDown("Submit") && cookiesHeld > 0)
@@ -267,9 +365,10 @@ public class Player : MonoBehaviour {
             GameObject Decoy = Instantiate(Distraction, transform.position, Quaternion.identity);
         }
     }
+    #endregion
 
-    //Search Items
-    private void searchItem(Collision2D searching)
+    #region Search Items
+    private void searchItem(Collider2D searching)
     {
         if (proximity == nextTo.search)
         {
@@ -303,6 +402,10 @@ public class Player : MonoBehaviour {
             }
         }
     }
+    #endregion
+
+    #region Something to do with rotation (disabled)
+    //Something to do with rotation
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
     //    foreach(ContactPoint2D c in collision.contacts)
@@ -312,9 +415,13 @@ public class Player : MonoBehaviour {
     //        transform.position = Vector3.Lerp(transform.position, transform.position + new Vector3(c.normal.x * dist, c.normal.y * dist, 0), .8f);
     //    }
     //}
+    #endregion
 
+    #region MoveState Flag
     public moveState getMoveState()
     {
         return motion;
     }
+    #endregion
 }
+#endregion

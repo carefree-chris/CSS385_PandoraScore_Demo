@@ -72,7 +72,7 @@ public class MonsterAI : MonoBehaviour {
         monsterChaseState = new MonsterChaseState(this);
         monsterDistractionState = new MonsterDistractionState(this);
 
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         
 
@@ -196,28 +196,30 @@ public class MonsterAI : MonoBehaviour {
     private void UpdateSprite()
     {
 
-        
-
-
         //Debug.Log(agent.velocity.normalized);
-        if (agent.velocity.normalized.z > 0 && Mathf.Abs(agent.velocity.x) < 1f)
+        if (proxy.transform.rotation.eulerAngles.y < 40)
         {
             anim.SetInteger("Direction", 0);
-        } else if (agent.velocity.normalized.z < 0 && Mathf.Abs(agent.velocity.x) < 1)
-        {
-            anim.SetInteger("Direction", 2);
-        } else
-        {
-
-        } if (agent.velocity.normalized.x < 0)
-        {
-            anim.SetInteger("Direction", 3);
-        } else if (agent.velocity.normalized.x > 0)
+        }
+        else if (proxy.transform.rotation.eulerAngles.y < 140)
         {
             anim.SetInteger("Direction", 1);
         }
+        else if (proxy.transform.rotation.eulerAngles.y < 220)
+        {
+            anim.SetInteger("Direction", 2);
+        }
+        else if (proxy.transform.rotation.eulerAngles.y < 320)
+        {
+            anim.SetInteger("Direction", 3);
+        }
+        else
+        {
+            anim.SetInteger("Direction", 0);
+        }
 
 
+        transform.GetChild(0).transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y % 50 * .02f);
     }
 
     public void SetDestination()
@@ -294,6 +296,9 @@ public class MonsterAI : MonoBehaviour {
         GameObject obstacleRep = Instantiate(obstacleRepObj);
         obstacleRep.GetComponent<Transform>().position = representationLocation;
         obstacleRep.GetComponent<Transform>().localScale = representationScale;
+
+        //performance increase?
+        obstacleRep.GetComponent<MeshRenderer>().enabled = false;
 
         obstacleRep.name = "Safe Room Obstacle";
         //Debug.Log("Intention" + representationLocation + "\nActual: " + obstacleRep.transform.position);

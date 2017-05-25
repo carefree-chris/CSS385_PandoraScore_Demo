@@ -33,6 +33,8 @@ public class RoomScript : MonoBehaviour
     private GameObject[] Doors;
     private Tiles[][] Tiles;
     private GameObject[] Decor;
+
+    private SpriteRenderer[] sprites;
     
 
     List<GameObject> Interactables = new List<GameObject>();
@@ -114,10 +116,10 @@ public class RoomScript : MonoBehaviour
 
         if (num != 5 && num != 6 && num != 1)
         {
-            GameObject TopDoor = Instantiate(Door);
-            TopDoor.transform.parent = Doors[1].transform;
-            TopDoor.transform.localPosition = new Vector3(0, 0, 0);
-            TopDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
+            //GameObject TopDoor = Instantiate(Door);
+            //TopDoor.transform.parent = Doors[1].transform;
+            //TopDoor.transform.localPosition = new Vector3(0, 0, 0);
+            //TopDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
         }
         else
         {
@@ -126,10 +128,10 @@ public class RoomScript : MonoBehaviour
         }
         if (num != 5 && num != 7 && num != 4)
         {
-            GameObject LeftDoor = Instantiate(Door);
-            LeftDoor.transform.parent = Doors[0].transform;
-            LeftDoor.transform.localPosition = new Vector3(0, 0, 0);
-            LeftDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
+            //GameObject LeftDoor = Instantiate(Door);
+            //LeftDoor.transform.parent = Doors[0].transform;
+            //LeftDoor.transform.localPosition = new Vector3(0, 0, 0);
+            //LeftDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
         }
         else
         {
@@ -138,10 +140,10 @@ public class RoomScript : MonoBehaviour
         }
         if (num != 6 && num != 8 && num != 2)
         {
-            GameObject RightDoor = Instantiate(Door);
-            RightDoor.transform.parent = Doors[2].transform;
-            RightDoor.transform.localPosition = new Vector3(0, 0, 0);
-            RightDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
+            //GameObject RightDoor = Instantiate(Door);
+            //RightDoor.transform.parent = Doors[2].transform;
+            //RightDoor.transform.localPosition = new Vector3(0, 0, 0);
+            //RightDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
         }
         else
         {
@@ -150,10 +152,10 @@ public class RoomScript : MonoBehaviour
         }
         if (num != 7 && num != 8 && num != 3)
         {
-            GameObject BottomDoor = Instantiate(Door);
-            BottomDoor.transform.parent = Doors[3].transform;
-            BottomDoor.transform.localPosition = new Vector3(0, 0, 0);
-            BottomDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
+            //GameObject BottomDoor = Instantiate(Door);
+            //BottomDoor.transform.parent = Doors[3].transform;
+            //BottomDoor.transform.localPosition = new Vector3(0, 0, 0);
+            //BottomDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
         }
         else
         {
@@ -202,6 +204,9 @@ public class RoomScript : MonoBehaviour
                     spawnTiles(pixels, i, j);
             }
         }
+
+        sprites = GetComponentsInChildren<SpriteRenderer>();
+
     }
 
     private void spawnTiles(Color32[] c, int i, int j)
@@ -244,9 +249,21 @@ public class RoomScript : MonoBehaviour
         }
     }
 
-    public void DisableRoom(int i, int j)
+    public void DisableRoom()
     {
-        //todo, disable all visuals for room, keep collisions enabled for pathing?
+        //performance increase?
+        //for(int i = 0; i < sprites.Length; i++)
+        //{
+        //    sprites[i].color = new Color(sprites[i].color.r, sprites[i].color.g, sprites[i].color.b, 0);
+        //}
+    }
+
+    public void EnableRoom()
+    {
+        //for (int i = 0; i < sprites.Length; i++)
+        //{
+        //    sprites[i].color = new Color(sprites[i].color.r, sprites[i].color.g, sprites[i].color.b, 1);
+        //}
     }
 
     void placeObject(RoomPrefabs room, int i, int j, int num)
@@ -364,8 +381,6 @@ public class RoomScript : MonoBehaviour
             }
 
         }
-
-        
     }
 
     void placeHazards()
