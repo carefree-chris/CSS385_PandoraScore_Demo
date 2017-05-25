@@ -152,6 +152,7 @@ public class MonsterAI : MonoBehaviour
 
         if (stuckTime >= stuckTimeLimit)
         {
+            Debug.Log("Monster is stuck: Resetting destination.");
             SetDestination();
             stuckTime = 0f;
         }
@@ -244,6 +245,7 @@ public class MonsterAI : MonoBehaviour
         if (player.getMoveState().ToString() == "walk")
         {
             SoundTrigger(targetActual.transform.position, walkListeningDistance, walkSoundStrength);
+            
         }
         if (player.getMoveState().ToString() == "run")
         {

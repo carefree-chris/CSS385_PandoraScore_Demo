@@ -17,6 +17,7 @@ TagManager:
   - SoundManager
   - ResetScreen
   - Door
+  - GlobalStorage
   layers:
   - Default
   - TransparentFX
