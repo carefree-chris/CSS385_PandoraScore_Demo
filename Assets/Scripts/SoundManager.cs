@@ -6,7 +6,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour {
 
     
-    //private GameObject player;
+    public Player player;
     private MonsterAI monster;
 
 
@@ -24,20 +24,65 @@ public class SoundManager : MonoBehaviour {
     [SerializeField] public AudioClip winGame;
     [SerializeField] public AudioClip loseGame;
 
+    [SerializeField] private AudioSource playerMovement;
+    [SerializeField] private AudioClip fastWalk;
+    [SerializeField] private AudioClip normalWalk;
+
     private AudioClip monsterPatrolClip;
 
     private float lowPitchRange = .95f;
     private float highPitchRange = 1.05f;
 
+    private bool playerIsMoving = false;
+
     void Awake()
     {
-        //DontDestroyOnLoad(gameObject);
-        //player = GameObject.FindGameObjectWithTag("Player");
-        monster = GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>();
+      //DontDestroyOnLoad(gameObject);
+       //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+       monster = GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>();
 
        
         
     }
+
+   private void Update()
+   {
+
+      
+      if ((player.getMoveState().ToString() == "run" || player.getMoveState().ToString() == "walk") && !playerIsMoving)
+      {
+         playerIsMoving = true;
+         playFootsteps();
+      }
+
+      if (!(player.getMoveState().ToString() == "run" || player.getMoveState().ToString() == "walk") && playerIsMoving)
+      {
+         playerIsMoving = false;
+         stopFootsteps();
+      }
+   }
+
+   public void playFootsteps()
+   {
+      playerMovement.loop = true;
+
+      if (player.getMoveState().ToString() == "walk")
+      {
+         playerMovement.clip = normalWalk;
+         playerMovement.Play();
+      } else if (player.getMoveState().ToString() == "run")
+      {
+         playerMovement.clip = fastWalk;
+         playerMovement.Play();
+
+         //TODO: fix bug where only slow footsteps make sound.
+      }
+   }
+
+   public void stopFootsteps()
+   {
+      playerMovement.loop = false;
+   }
 
     public void PlaySingle(AudioClip clip)
     {

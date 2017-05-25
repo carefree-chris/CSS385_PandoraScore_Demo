@@ -352,7 +352,7 @@ public class MonsterAI : MonoBehaviour
 
             if (localPatrolNodes.Count > 0)
             {
-                Debug.Log("LOCAL PATROL");
+            if (debugInfo) { Debug.Log("LOCAL PATROL"); }
                 SetLocalPatrolDestination();
             }
             else

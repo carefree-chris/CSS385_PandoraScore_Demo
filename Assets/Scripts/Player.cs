@@ -5,8 +5,10 @@ using UnityEngine;
 #region Hero Controller Class
 public class Player : MonoBehaviour {
 
-    #region inventory Variables
-    public int keysHeld;
+   
+
+   #region inventory Variables
+   public int keysHeld;
     public int cookiesHeld;
     public int potionsHeld;
     public int goldHeld;
@@ -91,35 +93,37 @@ public class Player : MonoBehaviour {
         {
             motion = moveState.sneak;
             speed = sneakSpeed;
+        
             //rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * sneakSpeed);
         }
         else if (Input.GetButton("Fire2") && !Input.GetButton("Fire1")) //Run
         {
             motion = moveState.run;
             speed = runSpeed;
-            //rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed);
-        }
+         //rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed);
+      }
         else if (vertical != 0 || horizontal != 0)
         {
             motion = moveState.walk;
             speed = walkSpeed;
-            //rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed);
-        }
+         
+         //rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed);
+      }
         else if (proximity == nextTo.hide && Input.GetButtonDown("Jump"))
         {
             motion = moveState.hiding;
-        }
+      }
         else if (motion == moveState.hiding)
         {
             if (Input.GetButtonDown("Jump"))
             {
                 motion = moveState.idle;
-            }
+         }
         }
         else
         {
             motion = moveState.idle;
-        }
+      }
         #endregion
 
         #region Handling For Movement and Sprite Direction  
