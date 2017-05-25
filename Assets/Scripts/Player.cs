@@ -247,7 +247,7 @@ public class Player : MonoBehaviour {
 
             if (collision.gameObject.tag == "Door")
             {
-                Debug.Log("Door is open" + collision.gameObject.GetComponent<DoorScript>().isOpen);
+
                 if (Input.GetButton("Jump"))
                 {
                     collision.gameObject.GetComponent<DoorScript>().updateDoor();

@@ -166,6 +166,14 @@ public class RoomManager : MonoBehaviour
                     GameObject r = GameObject.Instantiate(Door);
                     r.transform.position = new Vector3(-149.5f + 75 / 2 + (75 * j), 25 - 50 * i, -.1f);
                     r.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+
+                    SpriteRenderer[] s = r.GetComponentsInChildren<SpriteRenderer>();
+                    s[2].transform.localRotation = Quaternion.Euler(0, 0, -90f);
+                    s[2].transform.localScale = new Vector3(.68f, 1, 0);
+                    s[3].transform.localRotation = Quaternion.Euler(0, 0, -90f);
+                    s[3].transform.localScale = new Vector3(.68f, 1, 0);
+                    s[4].transform.localRotation = Quaternion.Euler(0, 0, -90f);
+                    s[4].transform.localScale = new Vector3(.68f, 1, 0);
                 }
                 else
                 {
