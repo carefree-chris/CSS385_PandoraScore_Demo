@@ -122,44 +122,37 @@ public class Player : MonoBehaviour {
         }
         #endregion
 
-        #region Handling For Movement and Sprite Direction     
-        if (vertical > 0)
+        #region Handling For Movement and Sprite Direction  
+        if (Mathf.Abs(vertical) > 0 || Mathf.Abs(horizontal) > 0)
         {
-            //if (!coll.IsTouchingLayers(LayerMask.GetMask("Environment")))
-            //{
-            transform.position = new Vector3(transform.position.x, transform.position.y + speed * vertical * Time.deltaTime, transform.position.z);
-            //}
-            animator.SetInteger("Direction", 2);
             animator.SetBool("IsMoving", true);
+
+            if (vertical > 0)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y + speed * vertical * Time.deltaTime, transform.position.z);
+
+                animator.SetInteger("Direction", 2);
+            }
+            if (vertical < 0)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y + speed * vertical * Time.deltaTime, transform.position.z);
+
+                animator.SetInteger("Direction", 0);
+            }
+            if (horizontal < 0)
+            {
+                transform.position = new Vector3(transform.position.x + speed * horizontal * Time.deltaTime, transform.position.y, transform.position.z);
+                
+                animator.SetInteger("Direction", 1);
+            }
+            if (horizontal > 0)
+            {
+                transform.position = new Vector3(transform.position.x + speed * horizontal * Time.deltaTime, transform.position.y, transform.position.z);
+
+                animator.SetInteger("Direction", 3);
+            }
         }
-        if (vertical < 0)
-        {
-            //if (!coll.IsTouchingLayers(LayerMask.GetMask("Environment")))
-            //{
-            transform.position = new Vector3(transform.position.x, transform.position.y + speed * vertical * Time.deltaTime, transform.position.z);
-            //}
-            animator.SetInteger("Direction", 0);
-            animator.SetBool("IsMoving", true);
-        }
-        if (horizontal < 0)
-        {
-            //if (!coll.IsTouchingLayers(LayerMask.GetMask("Environment")))
-            //{
-            transform.position = new Vector3(transform.position.x + speed * horizontal * Time.deltaTime, transform.position.y, transform.position.z);
-            //}
-            animator.SetInteger("Direction", 1);
-            animator.SetBool("IsMoving", true);
-        }
-        if (horizontal > 0)
-        {
-            //if (!coll.IsTouchingLayers(LayerMask.GetMask("Environment")))
-            //{
-            transform.position = new Vector3(transform.position.x + speed * horizontal * Time.deltaTime, transform.position.y, transform.position.z);
-            //}
-            animator.SetInteger("Direction", 3);
-            animator.SetBool("IsMoving", true);
-        }
-        if (horizontal + vertical == 0)
+        else
         {
             animator.SetBool("IsMoving", false);
         }

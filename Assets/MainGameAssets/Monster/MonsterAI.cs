@@ -72,7 +72,7 @@ public class MonsterAI : MonoBehaviour {
         monsterChaseState = new MonsterChaseState(this);
         monsterDistractionState = new MonsterDistractionState(this);
 
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         
 
@@ -219,7 +219,7 @@ public class MonsterAI : MonoBehaviour {
         }
 
 
-
+        transform.GetChild(0).transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y % 50 * .02f);
     }
 
     public void SetDestination()
