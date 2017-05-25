@@ -51,9 +51,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78cb4934708cdb40888b53a0350fd85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RoomImages:
+  - {fileID: 2800000, guid: 546db68ac0306b44cbf4a44dfc5f8990, type: 3}
+  - {fileID: 2800000, guid: 1e76ff794a7a6f84283c91f133659268, type: 3}
+  - {fileID: 2800000, guid: 0cc1c3e2377304d45b244098c770d2a1, type: 3}
+  - {fileID: 2800000, guid: 04dcb9e3f6fdbf84a92b56a86c4e82b7, type: 3}
+  - {fileID: 2800000, guid: 3340977c754c8f84c94dd951a214f7f8, type: 3}
+  - {fileID: 2800000, guid: 6b4a569be61960d4eb9e1b3a393f030c, type: 3}
+  - {fileID: 2800000, guid: e50c52baaa682d54f98b8614f0f52d6a, type: 3}
+  - {fileID: 2800000, guid: fbe6f8cf9ce159047b5af24aef9c9622, type: 3}
+  - {fileID: 2800000, guid: 6378d0f9266b9234abd1feda654aa7f4, type: 3}
+  - {fileID: 2800000, guid: 32287ac405b62d4448e4603eb2bced06, type: 3}
+  CornerRoomImages:
+  - {fileID: 2800000, guid: 546db68ac0306b44cbf4a44dfc5f8990, type: 3}
+  - {fileID: 2800000, guid: 1e76ff794a7a6f84283c91f133659268, type: 3}
+  - {fileID: 2800000, guid: 0cc1c3e2377304d45b244098c770d2a1, type: 3}
+  - {fileID: 2800000, guid: 04dcb9e3f6fdbf84a92b56a86c4e82b7, type: 3}
+  - {fileID: 2800000, guid: 3340977c754c8f84c94dd951a214f7f8, type: 3}
+  - {fileID: 2800000, guid: 6b4a569be61960d4eb9e1b3a393f030c, type: 3}
+  - {fileID: 2800000, guid: e50c52baaa682d54f98b8614f0f52d6a, type: 3}
+  - {fileID: 2800000, guid: fbe6f8cf9ce159047b5af24aef9c9622, type: 3}
+  - {fileID: 2800000, guid: 6378d0f9266b9234abd1feda654aa7f4, type: 3}
+  startingRoom: {fileID: 2800000, guid: b82ea688bc4712247bd23f008307f737, type: 3}
   sizeModifier: 0.05
-  collumns: 5
-  rows: 5
+  collumns: 7
+  rows: 7
   actRow: 0
-  actCol: 2
+  actCol: 3
+  CookieCount: 8
+  PotionCount: 8
   Room: {fileID: 1372866923475536, guid: 9a894cd83e67e8246aadd3416e80a6cd, type: 2}
+  Player: {fileID: 0}
+  Door: {fileID: 1115183077637094, guid: d2642f92bf24df14ba8cdaaa5cc9047b, type: 2}

@@ -114,54 +114,54 @@ public class RoomScript : MonoBehaviour
         Colliders[6] = c.transform.FindChild("LeftBottom").gameObject;
         Colliders[7] = c.transform.FindChild("LeftTop").gameObject;
 
-        if (num != 5 && num != 6 && num != 1)
-        {
-            GameObject TopDoor = Instantiate(Door);
-            TopDoor.transform.parent = Doors[1].transform;
-            TopDoor.transform.localPosition = new Vector3(0, 0, 0);
-            TopDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
-        }
-        else
-        {
-            Colliders[0].transform.localScale = new Vector3(8, 1.5f, 1);
-            Colliders[0].transform.localPosition = new Vector3(-2.5f, 4.25f, 0);
-        }
-        if (num != 5 && num != 7 && num != 4)
-        {
-            GameObject LeftDoor = Instantiate(Door);
-            LeftDoor.transform.parent = Doors[0].transform;
-            LeftDoor.transform.localPosition = new Vector3(0, 0, 0);
-            LeftDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
-        }
-        else
-        {
-            Colliders[6].transform.localScale = new Vector3(1.5f, 5f, 1);
-            Colliders[6].transform.localPosition = new Vector3(-6.75f, -1f, 0);
-        }
-        if (num != 6 && num != 8 && num != 2)
-        {
-            GameObject RightDoor = Instantiate(Door);
-            RightDoor.transform.parent = Doors[2].transform;
-            RightDoor.transform.localPosition = new Vector3(0, 0, 0);
-            RightDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
-        }
-        else
-        {
-            Colliders[2].transform.localScale = new Vector3(1.5f, 5f, 1);
-            Colliders[2].transform.localPosition = new Vector3(6.75f, 1f, 0);
-        }
-        if (num != 7 && num != 8 && num != 3)
-        {
-            GameObject BottomDoor = Instantiate(Door);
-            BottomDoor.transform.parent = Doors[3].transform;
-            BottomDoor.transform.localPosition = new Vector3(0, 0, 0);
-            BottomDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
-        }
-        else
-        {
-            Colliders[5].transform.localScale = new Vector3(8, 1.5f, 1);
-            Colliders[5].transform.localPosition = new Vector3(-2.5f, -4.25f, 0);
-        }
+        //if (num != 5 && num != 6 && num != 1)
+        //{
+        //    GameObject TopDoor = Instantiate(Door);
+        //    TopDoor.transform.parent = Doors[1].transform;
+        //    TopDoor.transform.localPosition = new Vector3(0, 0, 0);
+        //    TopDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
+        //}
+        //else
+        //{
+        //    Colliders[0].transform.localScale = new Vector3(8, 1.5f, 1);
+        //    Colliders[0].transform.localPosition = new Vector3(-2.5f, 4.25f, 0);
+        //}
+        //if (num != 5 && num != 7 && num != 4)
+        //{
+        //    GameObject LeftDoor = Instantiate(Door);
+        //    LeftDoor.transform.parent = Doors[0].transform;
+        //    LeftDoor.transform.localPosition = new Vector3(0, 0, 0);
+        //    LeftDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
+        //}
+        //else
+        //{
+        //    Colliders[6].transform.localScale = new Vector3(1.5f, 5f, 1);
+        //    Colliders[6].transform.localPosition = new Vector3(-6.75f, -1f, 0);
+        //}
+        //if (num != 6 && num != 8 && num != 2)
+        //{
+        //    GameObject RightDoor = Instantiate(Door);
+        //    RightDoor.transform.parent = Doors[2].transform;
+        //    RightDoor.transform.localPosition = new Vector3(0, 0, 0);
+        //    RightDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
+        //}
+        //else
+        //{
+        //    Colliders[2].transform.localScale = new Vector3(1.5f, 5f, 1);
+        //    Colliders[2].transform.localPosition = new Vector3(6.75f, 1f, 0);
+        //}
+        //if (num != 7 && num != 8 && num != 3)
+        //{
+        //    GameObject BottomDoor = Instantiate(Door);
+        //    BottomDoor.transform.parent = Doors[3].transform;
+        //    BottomDoor.transform.localPosition = new Vector3(0, 0, 0);
+        //    BottomDoor.transform.localRotation = new Quaternion(0, 0, 0, 0);
+        //}
+        //else
+        //{
+        //    Colliders[5].transform.localScale = new Vector3(8, 1.5f, 1);
+        //    Colliders[5].transform.localPosition = new Vector3(-2.5f, -4.25f, 0);
+        //}
 
 
         Decor = new GameObject[12];
@@ -252,18 +252,18 @@ public class RoomScript : MonoBehaviour
     public void DisableRoom()
     {
         //performance increase?
-        for(int i = 0; i < sprites.Length; i++)
-        {
-            sprites[i].color = new Color(sprites[i].color.r, sprites[i].color.g, sprites[i].color.b, 0);
-        }
+        //for(int i = 0; i < sprites.Length; i++)
+        //{
+        //    sprites[i].color = new Color(sprites[i].color.r, sprites[i].color.g, sprites[i].color.b, 0);
+        //}
     }
 
     public void EnableRoom()
     {
-        for (int i = 0; i < sprites.Length; i++)
-        {
-            sprites[i].color = new Color(sprites[i].color.r, sprites[i].color.g, sprites[i].color.b, 1);
-        }
+        //for (int i = 0; i < sprites.Length; i++)
+        //{
+        //    sprites[i].color = new Color(sprites[i].color.r, sprites[i].color.g, sprites[i].color.b, 1);
+        //}
     }
 
     void placeObject(RoomPrefabs room, int i, int j, int num)

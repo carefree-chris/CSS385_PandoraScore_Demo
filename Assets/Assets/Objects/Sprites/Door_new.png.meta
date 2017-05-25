@@ -1,18 +1,14 @@
 fileFormatVersion: 2
-guid: 8bf5f938b1f9007498317ea9a1b261fb
-timeCreated: 1495680743
+guid: d1c0bb9248362ab43af8e296a1247c2f
+timeCreated: 1495683979
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: JapaneseVillage02_0
-    21300002: JapaneseVillage02_1
-    21300004: JapaneseVillage02_2
-    21300006: JapaneseVillage02_3
-    21300008: JapaneseVillage02_4
-    21300010: JapaneseVillage02_5
-    21300012: JapaneseVillage02_6
-    21300014: JapaneseVillage02_7
-    21300016: JapaneseVillage02_8
+    21300000: Door_new_0
+    21300002: Door_new_1
+    21300004: Door_new_2
+    21300006: Door_new_3
+    21300008: Door_new_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -36,7 +32,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -68,13 +64,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 8192
-    textureFormat: 4
+    maxTextureSize: 2048
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
   - buildTarget: iPhone
     maxTextureSize: 2048
     textureFormat: -1
@@ -95,119 +91,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JapaneseVillage02_0
+      name: Door_new_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 735
-        width: 32
-        height: 32
+        x: 0
+        y: 0
+        width: 64
+        height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 1, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: JapaneseVillage02_1
+      name: Door_new_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 368
-        width: 32
-        height: 34
+        y: 0
+        width: 64
+        height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: JapaneseVillage02_2
+      name: Door_new_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 368
-        width: 32
-        height: 48
+        x: 128
+        y: 0
+        width: 64
+        height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: JapaneseVillage02_3
+      name: Door_new_3
       rect:
         serializedVersion: 2
-        x: 132
-        y: 368
-        width: 56
-        height: 45
+        x: 192
+        y: 0
+        width: 64
+        height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: JapaneseVillage02_4
+      name: Door_new_4
       rect:
         serializedVersion: 2
-        x: 193
-        y: 597
-        width: 29
-        height: 38
+        x: 256
+        y: 0
+        width: 64
+        height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: JapaneseVillage02_5
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 170
-        width: 88
-        height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: JapaneseVillage02_6
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 138
-        width: 24
-        height: 70
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: JapaneseVillage02_7
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 324
-        width: 24
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: JapaneseVillage02_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 640
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

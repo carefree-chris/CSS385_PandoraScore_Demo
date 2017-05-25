@@ -8,36 +8,47 @@ public class DoorScript : MonoBehaviour
     public Collider2D passable;
     public float doorDelay;
     private float doorSwing;
+    private Animator[] animations;
 
     public void Start()
     {
         isOpen = false;
         doorSwing = Time.time;
+
+        animations = GetComponentsInChildren<Animator>();
     }
     private void Update()
     {
         if (isOpen)
         {
-            passable.enabled = false;
+            doorSwing -= Time.deltaTime;
+            if (doorSwing < 0)
+                passable.enabled = false;
         }
         else
         {
-            passable.enabled = true;
+            doorSwing -= Time.deltaTime;
+            if (doorSwing < 0)
+                passable.enabled = true;
         }
     }
 
     public void updateDoor()
     {
-        if (Time.time > doorSwing)
+        if (doorSwing < 0)
         {
             if(isOpen)
             { 
-                doorSwing = Time.time + doorDelay;
+                doorSwing = doorDelay;
+                animations[0].SetBool("Open", false);
+                animations[1].SetBool("Open", false);
                 isOpen = false;
             }
             else
             {
-                doorSwing = Time.time + doorDelay;
+                doorSwing = doorDelay;
+                animations[0].SetBool("Open", true);
+                animations[1].SetBool("Open", true);
                 isOpen = true;
             }
         }

@@ -197,7 +197,7 @@ public class Player : MonoBehaviour {
     #region Object Interaction using Trigger Colliders (Updated 05/24/17)
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("In range");
+
         if ((collision.transform.position.x * 10) % 10 != 0 && (collision.transform.position.y * 10) % 10 == 0)
         {
             objectScalar = 1;

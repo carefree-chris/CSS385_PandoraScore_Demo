@@ -21,17 +21,26 @@ public class RoomManager : MonoBehaviour
     public GameObject Room;
 
     private GameObject[][] Rooms;
+    private GameObject[][] Doors;
 
     public GameObject Player;
+    public GameObject Door;
+    public GameObject noDoor;
 
     // Use this for initialization
     void Start()
     {
         Rooms = new GameObject[rows][];
+        Doors = new GameObject[rows + 1][];
 
         for (int i = 0; i < rows; i++)
         {
             Rooms[i] = new GameObject[collumns];
+        }
+
+        for(int i = 0; i < rows + 1; i++)
+        {
+            Doors[i] = new GameObject[collumns + 1];
         }
 
         for (int i = 0; i < rows; i++)
@@ -120,6 +129,53 @@ public class RoomManager : MonoBehaviour
                     }
 
                 }
+            }
+        }
+
+        for (int i = 0; i < rows + 1; i++)
+        {
+            GameObject l = GameObject.Instantiate(noDoor);
+            l.transform.position = new Vector3(-150 - 75/2, -25 - 50 * i, -.1f);
+            l.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
+
+            //Doors[i][0] = l;
+
+            for (int j = 0; j < collumns; j++)
+            {
+                if(i == 0)
+                {
+                    GameObject t = GameObject.Instantiate(noDoor);
+                    t.transform.position = new Vector3(-150 + (75 * j), 0, -.1f);
+                    t.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+                }
+
+                if (i < rows - 1)
+                {
+                    GameObject b = GameObject.Instantiate(Door);
+                    b.transform.position = new Vector3(-150 + (75 * j), -50 - 50 * i, -.1f);
+                    b.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+                }
+                else
+                {
+                    GameObject b = GameObject.Instantiate(noDoor);
+                    b.transform.position = new Vector3(-150 + (75 * j), -50 - 50 * i, -.1f);
+                    b.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+                }
+                if (j < collumns - 1)
+                {
+                    GameObject r = GameObject.Instantiate(Door);
+                    r.transform.position = new Vector3(-149.5f + 75 / 2 + (75 * j), 25 - 50 * i, -.1f);
+                    r.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+                }
+                else
+                {
+                    GameObject r = GameObject.Instantiate(noDoor);
+                    r.transform.position = new Vector3(-149.5f + 75 / 2 + (75 * j), 25 - 50 * i, -.1f);
+                    r.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+                }
+
+                //Doors[i][j + 1] = b;
+                //Doors[i]
             }
         }
 
