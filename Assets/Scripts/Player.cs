@@ -67,10 +67,10 @@ public class Player : MonoBehaviour {
     void FixedUpdate ()
     {
 
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    keysHeld++;
-        //}
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            keysHeld++;
+        }
 
         moveHero();
         useCookie();

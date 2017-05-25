@@ -6,6 +6,8 @@ public class MainDoor : MonoBehaviour {
 
     protected int keysRequired;
     protected int currentKeys;
+    private bool win = false;
+    private float winTimer = 2;
 
     private void Start()
     {
@@ -15,7 +17,12 @@ public class MainDoor : MonoBehaviour {
 
     private void Update()
     {
-        //currentKeys = GameObject.Find("Player").GetComponent<Player>().keysHeld;
+        if(win == true)
+        {
+            if(winTimer < 0)
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<UI>().WinGame();
+            winTimer -= Time.deltaTime;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -30,7 +37,8 @@ public class MainDoor : MonoBehaviour {
                 {
                     //DO THINGS!!!
                     Debug.Log("The Door Opens..");
-                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<UI>().WinGame();
+                    GetComponentInChildren<Animator>().SetBool("Open", true);
+                    win = true;
                 }
             }
         }
