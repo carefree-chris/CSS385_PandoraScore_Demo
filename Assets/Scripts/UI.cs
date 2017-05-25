@@ -11,7 +11,7 @@ public class UI : MonoBehaviour {
     public Text resetText;
     public Image resetImage;
     private bool resetInProgress = false;
-
+    public HashSet<int> visitedRoom;
     //SoundManager soundManager;
     RoomManager r;
 
@@ -51,6 +51,7 @@ public class UI : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //resetScreen.gameObject.SetActive(false);
+        visitedRoom = new HashSet<int>();
         showMap = false;
         map = GameObject.Find("Map");
         map.SetActive(false);
@@ -190,6 +191,10 @@ public class UI : MonoBehaviour {
         }
     }
 
+    private int HashAB(int a, int b) {
+        return (a + b) * (a + b + 1) / 2 + a;
+    }
+
     public void pressM() {
         if (showMap) {
             updateMap();
@@ -201,7 +206,8 @@ public class UI : MonoBehaviour {
     }
 
     public void updateMap() {
-        
+        int tmp = 0;
+        int tmpV = 0;
         int row = r.getRows();
         int col = r.getCollumns();
         int actRow = r.getActiveRow();
@@ -209,8 +215,12 @@ public class UI : MonoBehaviour {
         mapContent = "";
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
+                tmp = HashAB(i, j);
                 if (i == actRow && j == actCol) {
                     mapContent += "A";
+                    visitedRoom.Add(HashAB(i,j));
+                } else if (visitedRoom.Contains(tmp)) {
+                    mapContent += "o";
                 }
                 else {
                     mapContent += "k";
