@@ -8242,17 +8242,6 @@ MonoBehaviour:
   DecorItems:
   - {fileID: 1581429345326566, guid: 6a03125e09bb35c46a89d4505d55e0e3, type: 2}
   - {fileID: 1532351129704736, guid: 97a00b4e01bca154ea44d68274a4f4ca, type: 2}
-  - {fileID: 1613826222039792, guid: 9bcc6a6f2fe8f414b9dedb5d611c3d9b, type: 2}
-  - {fileID: 1293895931458802, guid: c734ec892fa7b17409a1d10adacd8654, type: 2}
-  - {fileID: 1368965739238788, guid: b6fa43c9291a1354686b8d32cb0e7c03, type: 2}
-  - {fileID: 1481566333769094, guid: ccb70705320ea7b4b91af91fe13caad4, type: 2}
-  - {fileID: 1381847202142074, guid: bbea8d91ad88f1d4d9bb106e8ed7269e, type: 2}
-  - {fileID: 1310931290714282, guid: c74ccb202441981408d7b6a2a426a79f, type: 2}
-  - {fileID: 1151255154634974, guid: ce87e59008f485a49b8438fd3d3c4477, type: 2}
-  - {fileID: 1673969064104884, guid: fff06631d4adae94295d1c6b9dead6c4, type: 2}
-  - {fileID: 1137327023226310, guid: c2edab6eadc53f748bdb866ab4f736c9, type: 2}
-  - {fileID: 1774720671371714, guid: 2c144cc4b268da544be9a57707aca85a, type: 2}
-  - {fileID: 1684452330881000, guid: 2eac884ae917b2e40ae72814945d8332, type: 2}
   Door: {fileID: 1508593304160710, guid: 535620997a1719e42b87957008201e8e, type: 2}
   EndDoor: {fileID: 1410134081622160, guid: 979d268e941b986419bb1b7b10706590, type: 2}
 --- !u!114 &114111138045421998
