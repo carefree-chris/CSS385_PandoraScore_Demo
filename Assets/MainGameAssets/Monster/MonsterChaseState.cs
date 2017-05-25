@@ -15,7 +15,7 @@ public class MonsterChaseState : IMonsterState {
     {
         if (monster.TargetIsVisible() == true)
         {
-            monster.agent.destination = new Vector3(monster.targetLocation.position.x, monster.proxyLocation.position.y, monster.targetLocation.position.y);
+            monster.SetDestination();
         }
         else
         {

@@ -31,10 +31,13 @@ public class MonsterPatrolState : IMonsterState {
         
 
         //Once we're close enough to a patrol point, we go to the next
-        if ((monster.transform.position - monster.patrolNodes[monster.currentNode].GetComponent<Transform>().position).magnitude < monster.roomDimensionsX / 2f)
+        if ((monster.proxyLocation.position - monster.agent.destination).magnitude < monster.roomDimensionsX / 2f)
         {
             monster.currentNode++;
-            
+
+            if (monster.localPatrolNodes.Count > 0)
+                monster.NextLocalPatrolDestination();
+
             //We don't want to patrol through the safe room.
             if (monster.patrolNodes[monster.currentNode] == monster.safeRoom)
                 monster.currentNode++;
@@ -111,6 +114,7 @@ public class MonsterPatrolState : IMonsterState {
         monster.agent.destination = new Vector3(other.GetComponent<Transform>().position.x, monster.proxyLocation.position.y, other.GetComponent<Transform>().position.y);
         monster.agent.autoBraking = true;
 
+        //TODO play *nom nom nom* sound
         //Once the distraction is finished, destroy it.
         GameObject.Destroy(other.gameObject, monster.maxDistractionTime);
     }

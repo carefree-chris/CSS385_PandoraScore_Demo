@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour {
 
     
     //private GameObject player;
-    //private GameObject monster;
+    private MonsterAI monster;
 
 
     //Ambient effects and music
@@ -33,7 +33,7 @@ public class SoundManager : MonoBehaviour {
     {
         //DontDestroyOnLoad(gameObject);
         //player = GameObject.FindGameObjectWithTag("Player");
-        //monster = GameObject.FindGameObjectWithTag("Monster");
+        monster = GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>();
 
        
         
@@ -60,6 +60,23 @@ public class SoundManager : MonoBehaviour {
         efxSource.pitch = randomPitch;
         efxSource.clip = clips[randomIndex];
         efxSource.Play();
+    }
+
+    /// PropogateSound takes in a location of a sound source, a sound distance (how far the
+    /// sound will travel), and a sound strength. The location is usually (if not always)
+    /// the player, the range determines whether it reaches the monster, and the strength
+    /// is how large of an area the monster will search for the player.
+    /// As an integer, soundStrength indicates the dimensions of the area that will be searched,
+    /// in terms of number of rooms, 1 being the strongest, as that means the monster will hone
+    /// in directly on the room that the player is in. 7 being the weakest, as that means the monster
+    /// chooses a random point within the maze (we likely won't use that value, as then sound becomes
+    /// useless).
+    /// <param name="soundLocation"></param>
+    /// <param name="soundRange"></param>
+    /// <param name="soundStrength"></param>
+    public void PropogateSound(Vector2 soundLocation, float soundRange, int soundStrength)
+    {
+
     }
 
     

@@ -57,7 +57,8 @@ public class MonsterSearchState : IMonsterState {
 
     private void CheckingLastPosition()
     {
-        monster.agent.destination = monster.searchPosition;
+        
+        monster.SetDestination();
 
         if (monster.TargetIsVisible())
         {
@@ -68,7 +69,7 @@ public class MonsterSearchState : IMonsterState {
         //Debug.Log("Test : " + (monster.transform.position - monster.searchPosition).magnitude + "\nStopping Distance: " + monster.agent.stoppingDistance);
 
         //If we've reached the spot where we last heard/saw the player, check furniture
-        if ((monster.transform.position - monster.searchPosition).magnitude < (furnitureCheckDistance))
+        if ((monster.proxyLocation.position - monster.agent.destination).magnitude < furnitureCheckDistance)//TODO DELETE(monster.transform.position - monster.searchPosition).magnitude < (furnitureCheckDistance) || monster.agent.destination == monster.agent.transform.position)
         {
             Collider2D hidingSpot = Physics2D.OverlapCircle(monster.transform.position, 1.5f);
             if (hidingSpot != null && (hidingSpot.transform.tag == "Furniture" || hidingSpot.transform.tag == "HideObject"))
@@ -94,6 +95,11 @@ public class MonsterSearchState : IMonsterState {
             currentSubState = SearchingSubState.CheckingFurniture;
             return;
         }
+        else if (monster.debugInfo)
+        {
+            //Debug.Log("Distance to Target: " + (monster.transform.position - monster.searchPosition).magnitude + " >= " + furnitureCheckDistance + "\nTarget: " + monster.searchPosition);
+            Debug.Log("Proxy Position: " + monster.agent.transform.position + ", Proxy Destination: " + monster.agent.destination + ", proxyLocation " + monster.proxyLocation.position + "\nPosition = Destination = " + (monster.agent.destination == monster.agent.transform.position));//"\nMonster location: " + monster.transform.position + ", Monster destination: " + monster.searchPosition);
+        }
     }
 
     private void CheckingFurniture()
@@ -109,9 +115,21 @@ public class MonsterSearchState : IMonsterState {
         if (potentialFurniture == null)
         {
             //potentialFurniture = Physics2D.OverlapCircleAll(monster.transform.position, monster.furnitureSearchRadius);
-            potentialFurniture = Physics2D.OverlapBoxAll(
-                monster.roomManager.GetComponent<RoomManager>().getRoomTransform(monster.GetRoomY(),
-                monster.GetRoomX()).position, new Vector2(monster.roomDimensionsX, monster.roomDimensionsY), 0f); //TODO verify this works
+
+            //Check our entire room for objects.
+            if (monster.GetRoomX() != -1 && monster.GetRoomY() != -1)
+            {
+                potentialFurniture = Physics2D.OverlapBoxAll(
+                   monster.roomManager.GetComponent<RoomManager>().getRoomTransform(monster.GetRoomY(),
+                   monster.GetRoomX()).position, new Vector2(monster.roomDimensionsX, monster.roomDimensionsY), 0f); //TODO Potential
+
+            } else
+            {
+                //In the case that an error occurs, return to patrol state.
+                ToMonsterPatrolState(); 
+                return;
+            }
+            
 
             for (int i = 0; i < potentialFurniture.Length; i++)
             {
@@ -166,6 +184,11 @@ public class MonsterSearchState : IMonsterState {
         }
         else
         {
+            if (monster.debugInfo)
+            {
+                Debug.Log("Furniture searched- resuming patrol");
+            }
+
             ToMonsterPatrolState();
         }
     }
@@ -209,7 +232,7 @@ public class MonsterSearchState : IMonsterState {
         }
         else if (monster.debugInfo)
         {
-            Debug.Log("Approaching furniture: " + (furniture.transform.position - monster.transform.position).magnitude);
+            //Debug.Log("Approaching furniture: " + (furniture.transform.position - monster.transform.position).magnitude);
         }
 
 

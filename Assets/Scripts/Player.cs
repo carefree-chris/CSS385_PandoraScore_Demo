@@ -69,7 +69,7 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            keysHeld++;
+            //keysHeld++;
         }
 
         moveHero();

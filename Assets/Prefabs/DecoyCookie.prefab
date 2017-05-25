@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4072861640284244}
   - component: {fileID: 212827696242716872}
   - component: {fileID: 58571640224091150}
-  - component: {fileID: 114048030818839172}
   m_Layer: 0
   m_Name: DecoyCookie
   m_TagString: Distraction
@@ -56,18 +55,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.86
---- !u!114 &114048030818839172
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911415099502084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 551bc36bc0be84344bf04b4bb9fc5aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifespan: 3
 --- !u!212 &212827696242716872
 SpriteRenderer:
   m_ObjectHideFlags: 1

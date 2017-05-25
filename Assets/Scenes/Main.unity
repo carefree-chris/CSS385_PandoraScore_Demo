@@ -3365,6 +3365,13 @@ Transform:
   m_PrefabParentObject: {fileID: 4814189656169278, guid: 2e6aff6ee72344a419a9987513901e1e,
     type: 2}
   m_PrefabInternal: {fileID: 392913247}
+--- !u!81 &392913257
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 392913248}
+  m_Enabled: 1
 --- !u!1 &415584730
 GameObject:
   m_ObjectHideFlags: 0
@@ -3558,6 +3565,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61489565404473808, guid: ae160f58b00eb624caf6e920a897d0fa, type: 2}
+    - {fileID: 81861473334277760, guid: ae160f58b00eb624caf6e920a897d0fa, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ae160f58b00eb624caf6e920a897d0fa, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &497587996
@@ -13001,6 +13009,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolSound: {fileID: 1157781984}
   transitionSound: {fileID: 1157781985}
+  walkListeningDistance: 150
+  runListeningDistance: 300
+  walkSoundStrength: 1
+  runSoundStrength: 1
   soundManager: {fileID: 0}
   monsterPatrolSound: {fileID: 8300000, guid: 4993c85a47a04ca41b8dfb7692784222, type: 3}
   monsterRoar: {fileID: 8300000, guid: 72edb05e70134ac4d97eff50cd0338f1, type: 3}
@@ -13016,6 +13028,8 @@ MonoBehaviour:
   patrolNodes:
   - {fileID: 1802001433}
   currentNode: 0
+  localPatrolNodes: []
+  currentLocalNode: 0
   targetActual: {fileID: 1950293229}
   targetLocation: {fileID: 0}
   searchPosition: {x: 0, y: 0, z: 0}
