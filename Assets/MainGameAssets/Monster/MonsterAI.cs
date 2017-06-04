@@ -116,14 +116,37 @@ public class MonsterAI : MonoBehaviour
     [SerializeField]
     public bool debugInfo = false;
 
+    //For checking that we aren't stuck in one position for too long
     private float stuckTime = 0f;
     private float stuckTimeLimit = 7f;
     private float stuckCheckTime = 0;
     private float stuckCheckTimeMax = 5f;
     private Vector3 stuckPosition = new Vector3();
 
+    //For checking that we aren't stuck in a single room for too long
+    private int potentiallyStuckRoomX;
+    private int potentiallyStuckRoomY;
+    private float roomStuckTimer;
+    private float roomStuckMax = 60f;
+
+
+    private Vector3 initialPos;
+
+    //This sets the monster back to its original position.
+    public void ResetMonster()
+    {
+        proxy.SetActive(false);
+        proxy.GetComponent<Transform>().position = initialPos;
+        currentNode = 0;
+        currentLocalNode = 0;
+        localPatrolNodes.Clear();
+        proxy.SetActive(true);
+        currentState.ToMonsterPatrolState();
+
+    }
+
     //This is a hacky way of hopefully making sure we don't get stuck too long.
-    private void getUnstuck()
+    private void GetUnstuck()
     {
 
         stuckCheckTime += Time.smoothDeltaTime;
@@ -135,29 +158,93 @@ public class MonsterAI : MonoBehaviour
 
         }
 
+
         if (transform.position == stuckPosition)
         {
             stuckTime += Time.smoothDeltaTime;
 
             if (debugInfo)
                 Debug.Log("Stationary for " + stuckTime + " seconds.");
-            
-        } else
+
+        }
+        else
         {
             stuckTime = 0f;
         }
-        
 
-        
+
+
 
         if (stuckTime >= stuckTimeLimit)
         {
-            Debug.Log("Monster is stuck: Resetting destination.");
-            SetDestination();
+            ResetMonster();
             stuckTime = 0f;
         }
-        
+
     }
+
+    //If we spend too much time in the same room, we must reset.
+    //At the moment, that amount of time is 1 minute
+    private void GetUnstuckRoom()
+    {
+        if (roomStuckTimer == 0f)
+        {
+            potentiallyStuckRoomX = GetRoomX();
+            potentiallyStuckRoomY = GetRoomY();
+            roomStuckTimer += Time.smoothDeltaTime;
+        }
+        else
+        {
+            roomStuckTimer += Time.smoothDeltaTime;
+        }
+
+        //Check if it changes every couple seconds
+        if (roomStuckTimer == roomStuckMax * 0.5f)
+        {
+            if (potentiallyStuckRoomX != GetRoomX() || potentiallyStuckRoomY != GetRoomY())
+            {
+                roomStuckTimer = 0f;
+                return;
+            }
+
+        }
+
+        //Check if it changes every couple seconds
+        if (roomStuckTimer == roomStuckMax * 0.2f)
+        {
+            if (potentiallyStuckRoomX != GetRoomX() || potentiallyStuckRoomY != GetRoomY())
+            {
+                roomStuckTimer = 0f;
+                return;
+            }
+
+        }
+
+        //Check if it changes every couple seconds
+        if (roomStuckTimer == roomStuckMax * 0.8f)
+        {
+            if (potentiallyStuckRoomX != GetRoomX() || potentiallyStuckRoomY != GetRoomY())
+            {
+                roomStuckTimer = 0f;
+                return;
+            }
+
+        }
+
+        if (roomStuckTimer >= roomStuckMax)
+        {
+            if (potentiallyStuckRoomX == GetRoomX() && potentiallyStuckRoomY == GetRoomY() &&
+                !(GetRoomX() == GetPlayerRoomX() && GetRoomY() == GetPlayerRoomY())) //We make sure that the player is in a different room when we reset the monster
+            {
+                ResetMonster();
+
+            }
+            roomStuckTimer = 0f;
+        }
+
+
+    }
+
 
     void Awake()
     {
@@ -179,6 +266,9 @@ public class MonsterAI : MonoBehaviour
         currentState = monsterPatrolState;
 
         player = targetActual.GetComponent<Player>();
+
+        //We need this if we ever have to reset the monster.
+        initialPos = new Vector3(proxyLocation.position.x, proxyLocation.position.y, proxyLocation.position.z);
 
     }
 
@@ -203,7 +293,8 @@ public class MonsterAI : MonoBehaviour
     {
 
         UpdateSprite();
-        getUnstuck();
+        GetUnstuck();
+        GetUnstuckRoom();
 
         //Our movement is controlled by the navmesh agent. This keeps our positions synced up.
         GetComponent<Transform>().position = new Vector3(proxyLocation.position.x, proxyLocation.position.z, 0f);
@@ -214,6 +305,11 @@ public class MonsterAI : MonoBehaviour
         if (debugInfo && Input.GetKeyDown(KeyCode.Q))
         {
             DebugInfo();
+        }
+        if (debugInfo && Input.GetKeyDown(KeyCode.F))
+        {
+            mainCamera.GetComponent<healthbar>().TakeDemage(1000);
+            //mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
         }
 
         if (debugInfo)
@@ -628,39 +724,34 @@ public class MonsterAI : MonoBehaviour
 
 
 
+    //Resets the monster, player, and camera.
     public void ResetActors()
     {
-        //if (GetPlayerRoomX() != safeRoomX || GetPlayerRoomY() != safeRoomY)
-        //mainCamera.GetComponent<CameraScript>().TransitionRoom(safeRoomX); //TODO fix this for modularity
-
-        //TODO fix this to fit with room size
-        //mainCamera.GetComponent<CameraScript>().TransitionRoom(0);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
-
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
 
 
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(1);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(1);
-        mainCamera.GetComponent<CameraScript>().TransitionRoom(1);
+        if (debugInfo)
+        {
+            Debug.Log("Resetting to (" + safeRoomX + ", " + safeRoomY + ")");
+        }
 
-        proxy.transform.position = new Vector3(-75f, -898f, -10f); //TODO set this to a proper starting location.
+        for (int i = roomManager.GetComponent<RoomManager>().rows - 1; i != safeRoomY; i--)
+        {
+            mainCamera.GetComponent<CameraScript>().TransitionRoom(2);
+        }
+
+        for (int i = GetPlayerRoomX(); i < roomManager.GetComponent<RoomManager>().collumns - 1; i++)
+        {
+            mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
+        }
+
+
+        for (int i = roomManager.GetComponent<RoomManager>().collumns - 1; i != safeRoomX; i--)
+        {
+            mainCamera.GetComponent<CameraScript>().TransitionRoom(1);
+        }
+
+        ResetMonster();
         targetActual.transform.position = new Vector3(safeRoom.transform.position.x, safeRoom.transform.position.y, -0.5f);
-        Debug.Log("TEST: " + new Vector3(safeRoom.transform.position.x, safeRoom.transform.position.y, -0.5f));
         mainCamera.GetComponent<healthbar>().FullHealth();
 
     }
