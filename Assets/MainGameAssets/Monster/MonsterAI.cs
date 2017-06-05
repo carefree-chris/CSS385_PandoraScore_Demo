@@ -9,13 +9,14 @@ public class MonsterAI : MonoBehaviour
     public AudioSource patrolSound;
     public AudioSource transitionSound;
 
-    //Keep in mind that the area of our maze is roughly 500x500
+    //Keep in mind that the area of our maze is roughly 300x300
 
     [SerializeField] public float walkListeningDistance;
     [SerializeField] public float runListeningDistance;
     [SerializeField] public int walkSoundStrength;
     [SerializeField] public int runSoundStrength;
 
+    public GameObject instructions;
 
     [HideInInspector]
     public SoundManager soundManager;
@@ -103,7 +104,7 @@ public class MonsterAI : MonoBehaviour
     [HideInInspector]
     public float roomDimensionsY;
 
-    //TODO make sure this room isn't patrolable
+    
     [SerializeField]
     public GameObject roomManager;
     [HideInInspector]
@@ -285,6 +286,9 @@ public class MonsterAI : MonoBehaviour
 
         roomDimensionsY = mainCamera.GetComponent<Camera>().orthographicSize * 2f;
         roomDimensionsX = roomDimensionsY * mainCamera.GetComponent<Camera>().aspect;
+
+        
+        
     }
 
 
@@ -306,11 +310,7 @@ public class MonsterAI : MonoBehaviour
         {
             DebugInfo();
         }
-        if (debugInfo && Input.GetKeyDown(KeyCode.F))
-        {
-            mainCamera.GetComponent<healthbar>().TakeDemage(1000);
-            //mainCamera.GetComponent<CameraScript>().TransitionRoom(3);
-        }
+        
 
         if (debugInfo)
         {
@@ -367,7 +367,7 @@ public class MonsterAI : MonoBehaviour
         //If we encounter the player, the game should reset. For now, we affect health.
         if (collision.tag == "Player")
         {
-            //TODO reset game.
+            
             if (debugInfo) Debug.Log("Player caught");
             mainCamera.GetComponent<healthbar>().TakeDemage(damageOnContact);
         }
@@ -375,21 +375,19 @@ public class MonsterAI : MonoBehaviour
 
     public bool TargetIsVisible()
     {
-
-        //TODO player mustn't be in safe room.
-        // && NearPlayer() && PlayerInSafeZone()
-
+        
         RaycastHit2D hit = Physics2D.Raycast(transform.position, targetLocation.position - transform.position);
         if (hit.collider != null && hit.collider.tag == "Player" && NearPlayer() && !PlayerInSafeZone() && !hit.collider.GetComponent<Player>().IsInvisible())
         {
 
-            Debug.DrawRay(transform.position, targetLocation.position - transform.position, Color.red);
+            //Uncomment to see a ray pointing to the player, red if they are visible, blue if not.
+            //Debug.DrawRay(transform.position, targetLocation.position - transform.position, Color.red);
 
             return true;
         }
         else
         {
-            Debug.DrawRay(transform.position, targetLocation.position - transform.position, Color.blue);
+            //Debug.DrawRay(transform.position, targetLocation.position - transform.position, Color.blue);
             return false;
         }
     }
@@ -448,7 +446,7 @@ public class MonsterAI : MonoBehaviour
 
             if (localPatrolNodes.Count > 0)
             {
-            if (debugInfo) { Debug.Log("LOCAL PATROL"); }
+            //if (debugInfo) { Debug.Log("LOCAL PATROL"); }
                 SetLocalPatrolDestination();
             }
             else
@@ -559,9 +557,6 @@ public class MonsterAI : MonoBehaviour
     {
 
         Debug.Log("Current State" + currentState.ToString() + "\nPlayer Room Position: (" + GetPlayerRoomX() + ", " + GetPlayerRoomY() + ")");
-        //Debug.Log("TEST: Player move state = " + player.getMoveState().ToString());
-
-        SoundTrigger(targetActual.transform.position, 500f, 2); //TODO remove
 
         //Debug.Log("Player Room Position: (" + GetPlayerRoomX() + ", " + GetPlayerRoomY() + ")");
         //Debug.Log("Next to player: " + NearPlayer());
@@ -587,6 +582,7 @@ public class MonsterAI : MonoBehaviour
         GameObject obstacleRepObj = GameObject.FindGameObjectWithTag("SolidObject");
 
         //TODO: roomToBlock.transform.position.y - Fix the third parameter of representationLocation, so it works with any starting room
+        //Debug.Log("Testing: " + roomToBlock.transform.position.y);
         Vector3 representationLocation = new Vector3(roomToBlock.transform.position.x, navManagement.GetObstacleOffset(), -25f);
         Vector3 representationScale = new Vector3(roomDimensionsX, 1f, roomDimensionsY);
 
@@ -600,6 +596,9 @@ public class MonsterAI : MonoBehaviour
 
         obstacleRep.name = "Safe Room Obstacle";
         //Debug.Log("Intention" + representationLocation + "\nActual: " + obstacleRep.transform.position);
+
+        //REMOVE THIS if blocking a room besides the starting room
+        instructions.transform.position = new Vector3(roomToBlock.transform.position.x, roomToBlock.transform.position.y, instructions.transform.position.z);
     }
     #region Roomspace Coordinates
     public int GetRoomX()
@@ -642,7 +641,7 @@ public class MonsterAI : MonoBehaviour
         return -1;
     }
 
-    //TODO fix it being 10
+    
     public int GetPlayerRoomX()
     {
         //int xCount = 0;
@@ -662,7 +661,7 @@ public class MonsterAI : MonoBehaviour
         return -1;
     }
 
-    public int GetPlayerRoomY() //TODO fix y
+    public int GetPlayerRoomY() 
     {
 
         int yCount = 0;
@@ -759,13 +758,15 @@ public class MonsterAI : MonoBehaviour
     //Ideally, sound strength should be about 1-3 at most
     public void SoundTrigger(Vector3 soundLocation, float soundRange, int soundStrength)
     {
+        
+
         //First, check if we're out of range of the sound. If so, return.
         float distance = (soundLocation - transform.position).magnitude;
         if (distance > soundRange)
         {
             return;
         }
-
+        //Debug.Log("Sound heard. Range: " + soundRange + "Strength: " + soundStrength + "Distance: " + distance);
         //Second, check if we heard the sound, and are in the next room, in which
         //case we investigate that room.
         if (NearPlayer())

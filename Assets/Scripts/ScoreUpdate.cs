@@ -19,7 +19,7 @@ public class ScoreUpdate : MonoBehaviour {
         }
         else
         {
-            GetComponent<Text>().text = globalData.gold.ToString();
+            GetComponent<Text>().text = globalData.GetScore().ToString();
         }
         
 

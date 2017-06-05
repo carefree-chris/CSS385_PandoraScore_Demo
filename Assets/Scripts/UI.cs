@@ -14,7 +14,6 @@ public class UI : MonoBehaviour {
     public HashSet<int> visitedRoom;
     //SoundManager soundManager;
     RoomManager r;
-   GlobalVariables storage;
 
     bool showMap;
     int key;
@@ -47,7 +46,7 @@ public class UI : MonoBehaviour {
         //soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         resetText.text = "";
         resetImage.enabled = false;
-      storage = GameObject.FindGameObjectWithTag("GlobalStorage").GetComponent<GlobalVariables>();
+        
     }
 
     // Use this for initialization
@@ -83,7 +82,9 @@ public class UI : MonoBehaviour {
         potionNum.text = "x" + Hero.gameObject.GetComponent<Player>().potionsHeld;
         cookieNum.text = "x" + Hero.gameObject.GetComponent<Player>().cookiesHeld;
         gold = Hero.gameObject.GetComponent<Player>().goldHeld;
-         storage.gold = gold;
+
+        
+
         goldAmount.text = gold.ToString();
         key = Hero.gameObject.GetComponent<Player>().keysHeld;
 

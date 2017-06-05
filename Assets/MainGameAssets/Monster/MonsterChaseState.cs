@@ -29,24 +29,7 @@ public class MonsterChaseState : IMonsterState {
         }
     }
 
-    /*
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        //If we encounter a distraction, we exit our previous state,
-        //no matter what that state was, and go to the Distraction state
-        if (other.tag == "Distraction")
-        {
-            ToMonsterDistractionState(other);
-            return;
-        }
-
-        //If we encounter the player, the game should reset. Nothing for now.
-        if (other.tag == "Player")
-        {
-            //TODO reset game.
-            Debug.Log("if (debugInfo) if (debugInfo) Debug.Log("Player caught");");
-        }
-    }*/
+   
 
     #region State Transitions
     public void ToMonsterPatrolState()
@@ -67,7 +50,7 @@ public class MonsterChaseState : IMonsterState {
         {
             monster.searchPosition = new Vector3(monster.targetLocation.position.x, monster.targetLocation.position.y, 0f);
 
-            monster.monsterSearchState.currentSubState = MonsterSearchState.SearchingSubState.CheckingLastPosition; //TODO verify this works
+            monster.monsterSearchState.currentSubState = MonsterSearchState.SearchingSubState.CheckingLastPosition; 
             monster.currentState = monster.monsterSearchState;
         }
         else
