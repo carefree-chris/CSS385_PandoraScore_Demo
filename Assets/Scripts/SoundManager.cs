@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour {
 
     
     public Player player;
-    private MonsterAI monster;
+    //private MonsterAI monster;
 
 
     //Ambient effects and music
@@ -39,7 +39,7 @@ public class SoundManager : MonoBehaviour {
     {
       //DontDestroyOnLoad(gameObject);
        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-       monster = GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>();
+       //monster = GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterAI>();
 
        
         

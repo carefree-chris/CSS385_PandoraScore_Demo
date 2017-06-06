@@ -29,7 +29,7 @@ public class MainDoor : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("The Player is at the door");
+            //Debug.Log("The Player is at the door");
             currentKeys = collision.gameObject.GetComponent<Player>().keysHeld;
             if (Input.GetButtonDown("Jump"))
             {

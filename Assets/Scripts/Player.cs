@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
     public float fadeTimer;
     public GameObject Distraction;
     public SpriteRenderer childSprite;
+    private GlobalVariables storage;
     #endregion
 
     #region Object Interaction Variables
@@ -62,6 +63,11 @@ public class Player : MonoBehaviour {
         proximity = nextTo.open;
         motion = moveState.idle;
         childSprite = GetComponentInChildren<SpriteRenderer>();
+
+        storage = GameObject.FindGameObjectWithTag("GlobalStorage").GetComponent<GlobalVariables>();
+
+        if (storage == null)
+            Debug.Log("Error: Global Storage not found. Score will not display properly.");
     }
     #endregion
 
@@ -396,6 +402,10 @@ public class Player : MonoBehaviour {
                 {
                     goldHeld += searching.gameObject.GetComponent<SearchObject>().gold;
                     searching.gameObject.GetComponent<SearchObject>().contents = SearchObject.itemCode.Empty;
+
+                    if (!storage.SetScore(goldHeld))
+                        Debug.Log("Error: Unable to update score (player)");
+
                 }
 
                 else if (searching.gameObject.GetComponent<SearchObject>().contents == SearchObject.itemCode.Key)

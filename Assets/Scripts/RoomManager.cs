@@ -105,7 +105,7 @@ public class RoomManager : MonoBehaviour
                 //Rooms[i][j].transform.position = new Vector3((j - 2) * 1500, i * -1000, 0);
                 Rooms[i][j].transform.position = new Vector3(((j - 2) * 1500) * sizeModifier, (i * -1000) * sizeModifier, 0);
 
-                //Add all rooms to our monster's patrol route. TODO - Remove safe room.
+                //Add all rooms to our monster's patrol route. 
                 /*
                 Vector3 patrolPoint = new Vector3(Rooms[i][j].transform.position.x, Rooms[i][j].transform.position.y, 0f);
                 if (patrolPoint != null && (Rooms[i][j] != Rooms[0][4])) //Make sure the room we're adding isn't the safe room (starting)
