@@ -1,0 +1,42 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "This, my friend, is a test.\n\n[[I'm being tested?|Test1]]\n[[Cool.|Test2]]",
+		"position": {
+			"x": 545,
+			"y": 95
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Test1",
+		"tags": "",
+		"body": "Now the test is over.\n\n[[Ok, bye!|Finish]]\n[[Can we try this again?|Start]]",
+		"position": {
+			"x": 221,
+			"y": 376
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Test2",
+		"tags": "",
+		"body": "Yes, it is.\n[[Have a radical day!|Finish]]\n[[So... what're we testing?|Test1]]\n[[Right, I'm done testing|Finish]]",
+		"position": {
+			"x": 960,
+			"y": 211
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Finish",
+		"tags": "",
+		"body": "Goodbye.\n\n//<<print SceneTransitions helpidon'tknowifthisworks>>\n\n<<SceneChange SceneTransitions Main>>",
+		"position": {
+			"x": 691,
+			"y": 448
+		},
+		"colorID": 0
+	}
+]
