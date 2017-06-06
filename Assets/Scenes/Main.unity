@@ -9720,17 +9720,16 @@ MonoBehaviour:
   player: {fileID: 1950293232}
   efxSource: {fileID: 710206926}
   musicSource: {fileID: 710206925}
-  receiveGold: {fileID: 8300000, guid: 7121af419b79c4c4dab70f633440dc3c, type: 3}
-  receiveKey: {fileID: 8300000, guid: 684fc5f573626fa43b5f6473391cf20f, type: 3}
-  receivePotion: {fileID: 8300000, guid: 51b91553ef2882347b5f03f7be67a7aa, type: 3}
-  receiveCookie: {fileID: 8300000, guid: 51b91553ef2882347b5f03f7be67a7aa, type: 3}
+  receiveGold: {fileID: 8300000, guid: 764e8280730206f45b3bf27565f71008, type: 3}
+  receiveKey: {fileID: 8300000, guid: a08177523526f214b9805a28e2b64293, type: 3}
+  receivePotion: {fileID: 8300000, guid: 0227719dfdcb2664184ccf90b25227bb, type: 3}
+  receiveCookie: {fileID: 8300000, guid: 0227719dfdcb2664184ccf90b25227bb, type: 3}
   openObject:
-  - {fileID: 8300000, guid: 5f6e56272b790a3449561adede53b7bc, type: 3}
-  - {fileID: 8300000, guid: ed055ffa50a4f3f47a8b9629a41e7596, type: 3}
+  - {fileID: 8300000, guid: 64ce1efc9149cc649994c5258c0b5b77, type: 3}
   winGame: {fileID: 8300000, guid: d112be2a992602943b2399ea0b55705c, type: 3}
   loseGame: {fileID: 8300000, guid: 8807980896f4ac744a95a49414b2446a, type: 3}
   playerMovement: {fileID: 710206927}
-  fastWalk: {fileID: 8300000, guid: d8f5cdf0910ff0f418a66758b566a543, type: 3}
+  fastWalk: {fileID: 8300000, guid: 215208615144a134c929c22ff494cc85, type: 3}
   normalWalk: {fileID: 8300000, guid: 77c6cdb3c39facf418890315e92ca934, type: 3}
 --- !u!4 &710206924
 Transform:
@@ -9972,7 +9971,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -13366,8 +13365,8 @@ MonoBehaviour:
   runSoundStrength: 1
   instructions: {fileID: 1868973471}
   soundManager: {fileID: 0}
-  monsterPatrolSound: {fileID: 8300000, guid: 4993c85a47a04ca41b8dfb7692784222, type: 3}
-  monsterRoar: {fileID: 8300000, guid: 72edb05e70134ac4d97eff50cd0338f1, type: 3}
+  monsterPatrolSound: {fileID: 8300000, guid: 48b2f6ea75daae041b4601281bb09cb2, type: 3}
+  monsterRoar: {fileID: 8300000, guid: 909a6ada9d7d7e143ad4ca3bcf7744eb, type: 3}
   patrolSpeed: 15
   chaseSpeed: 25
   searchSpeed: 20
@@ -13454,7 +13453,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4993c85a47a04ca41b8dfb7692784222, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 48b2f6ea75daae041b4601281bb09cb2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.8
   m_Pitch: 1

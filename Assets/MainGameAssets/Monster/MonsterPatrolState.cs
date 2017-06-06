@@ -38,6 +38,10 @@ public class MonsterPatrolState : IMonsterState {
             if (monster.localPatrolNodes.Count > 0)
                 monster.NextLocalPatrolDestination();
 
+           
+            if (monster.currentNode >= monster.patrolNodes.Count)
+                monster.currentNode = 0;
+
             //We don't want to patrol through the safe room.
             if (monster.patrolNodes[monster.currentNode] == monster.safeRoom)
                 monster.currentNode++;
@@ -45,7 +49,7 @@ public class MonsterPatrolState : IMonsterState {
             if (monster.currentNode >= monster.patrolNodes.Count)
                 monster.currentNode = 0;
 
-           monster.SetDestination();
+            monster.SetDestination();
         }
 
         if (monster.agent.speed != monster.patrolSpeed)
