@@ -13,7 +13,7 @@ public class DoorScript : MonoBehaviour
     public void Start()
     {
         isOpen = false;
-        doorSwing = Time.time;
+        doorSwing = 0;
 
         animations = GetComponentsInChildren<Animator>();
     }
