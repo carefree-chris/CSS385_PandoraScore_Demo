@@ -10,4 +10,16 @@ public class DecoyTimer : MonoBehaviour
     {
         GameObject.Destroy(this.gameObject, lifespan);
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (Input.GetButton("Jump"))
+            {
+                collision.gameObject.GetComponent<Player>().cookiesHeld++;
+                GameObject.Destroy(this.gameObject);
+            }
+        }
+    }
 }
