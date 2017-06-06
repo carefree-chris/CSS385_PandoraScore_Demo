@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #region Hero Controller Class
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
-   
 
-   #region inventory Variables
-   public int keysHeld;
+
+    #region inventory Variables
+    public int keysHeld;
     public int cookiesHeld;
     public int potionsHeld;
     public int goldHeld;
+    private float cookieDelay;
     #endregion
 
     #region Inventory Functionality Variables
@@ -56,7 +58,8 @@ public class Player : MonoBehaviour {
     #endregion
 
     #region Initialization
-    void Start () {
+    void Start()
+    {
         animator = GetComponentInChildren<Animator>();
         //coll = GetComponent<BoxCollider2D>();
         //mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -72,7 +75,7 @@ public class Player : MonoBehaviour {
     #endregion
 
     #region Update
-    void FixedUpdate ()
+    void FixedUpdate()
     {
 
         if (Input.GetKeyDown(KeyCode.K))
@@ -99,37 +102,37 @@ public class Player : MonoBehaviour {
         {
             motion = moveState.sneak;
             speed = sneakSpeed;
-        
+
             //rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * sneakSpeed);
         }
         else if (Input.GetButton("Fire2") && !Input.GetButton("Fire1")) //Run
         {
             motion = moveState.run;
             speed = runSpeed;
-         //rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed);
-      }
+            //rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * runSpeed);
+        }
         else if (vertical != 0 || horizontal != 0)
         {
             motion = moveState.walk;
             speed = walkSpeed;
-         
-         //rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed);
-      }
+
+            //rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * walkSpeed);
+        }
         else if (proximity == nextTo.hide && Input.GetButtonDown("Jump"))
         {
             motion = moveState.hiding;
-      }
+        }
         else if (motion == moveState.hiding)
         {
             if (Input.GetButtonDown("Jump"))
             {
                 motion = moveState.idle;
-         }
+            }
         }
         else
         {
             motion = moveState.idle;
-      }
+        }
         #endregion
 
         #region Handling For Movement and Sprite Direction  
@@ -152,7 +155,7 @@ public class Player : MonoBehaviour {
             if (horizontal < 0)
             {
                 transform.position = new Vector3(transform.position.x + speed * horizontal * Time.deltaTime, transform.position.y, transform.position.z);
-                
+
                 animator.SetInteger("Direction", 1);
             }
             if (horizontal > 0)
@@ -166,7 +169,7 @@ public class Player : MonoBehaviour {
         {
             animator.SetBool("IsMoving", false);
         }
-        
+
         #endregion
 
         #region Animator Speed
@@ -255,10 +258,10 @@ public class Player : MonoBehaviour {
                 {
                     collision.gameObject.GetComponent<DoorScript>().updateDoor();
                 }
-                
+
             }
         }
-        
+
     }
     #endregion
 
@@ -371,8 +374,14 @@ public class Player : MonoBehaviour {
     {
         if (Input.GetButtonDown("Submit") && cookiesHeld > 0)
         {
-            cookiesHeld--;
-            GameObject Decoy = Instantiate(Distraction, transform.position, Quaternion.identity);
+            if (Time.time > cookieDelay)
+            {
+
+                cookieDelay = Time.time + .2f;
+                cookiesHeld--;
+                GameObject Decoy = Instantiate(Distraction,
+                    new Vector3(transform.position.x, transform.position.y, transform.position.z + .1f), Quaternion.identity);
+            }
         }
     }
     #endregion
